@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bv6dy8wlbfkvf"]
+
+[ext_resource type="PackedScene" uid="uid://daapus5bfgefq" path="res://wheel.tscn" id="1_qouct"]
+[ext_resource type="Script" uid="uid://c34bnxush3v0d" path="res://car_physics.gd" id="1_yafcr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sfj38"]
+size = Vector3(1.720459, 0.5, 2.8950195)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yafcr"]
+size = Vector3(0.5, 0.5, 0.2)
+
+[node name="CarPhysics" type="RigidBody3D" unique_id=1200942742 node_paths=PackedStringArray("steer_joints")]
+script = ExtResource("1_yafcr")
+steer_joints = [NodePath("HingeJoint3D"), NodePath("HingeJoint3D2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=646058183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004272461, 0.3178571, -0.94750977)
+shape = SubResource("BoxShape3D_sfj38")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Wheel" parent="." unique_id=444638518 instance=ExtResource("1_qouct")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1, 0, -2.1000001)
+node_a = NodePath("..")
+
+[node name="Wheel2" parent="." unique_id=525206272 instance=ExtResource("1_qouct")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.1000001, 0, -2.1000001)
+node_a = NodePath("..")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1081283388]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.8000001, 0.1, 0.3)
+node_a = NodePath("..")
+node_b = NodePath("RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 0.0
+angular_limit/lower = 0.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="HingeJoint3D" unique_id=1671241928]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingeJoint3D/RigidBody3D" unique_id=1068221193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9802326e-08, -5.9604645e-08)
+shape = SubResource("BoxShape3D_yafcr")
+
+[node name="Wheel" parent="HingeJoint3D/RigidBody3D" unique_id=1283177440 instance=ExtResource("1_qouct")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, 4.371139e-08, 1, -4.371139e-08, 1, -4.371139e-08, -4.3711385e-08, 0.39999998, 0, 0)
+node_a = NodePath("..")
+
+[node name="HingeJoint3D2" type="HingeJoint3D" parent="." unique_id=1417364451]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.79999995, 0.1, 0.3)
+node_a = NodePath("..")
+node_b = NodePath("RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 0.0
+angular_limit/lower = 0.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="HingeJoint3D2" unique_id=340779908]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingeJoint3D2/RigidBody3D" unique_id=1677821813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9802326e-08, -5.9604645e-08)
+shape = SubResource("BoxShape3D_yafcr")
+
+[node name="Wheel" parent="HingeJoint3D2/RigidBody3D" unique_id=48738618 instance=ExtResource("1_qouct")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, 4.371139e-08, 1, -4.371139e-08, 1, -4.371139e-08, -4.3711385e-08, -0.4000001, 0, 0)
+node_a = NodePath("..")

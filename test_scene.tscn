@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bvd6yq4ljpman"]
+
+[ext_resource type="PackedScene" uid="uid://cgcsce65t5trh" path="res://car_body.tscn" id="1_uhqqe"]
+[ext_resource type="PackedScene" uid="uid://bv6dy8wlbfkvf" path="res://car_physics.tscn" id="2_ia1lp"]
+[ext_resource type="PackedScene" uid="uid://c4845dvr05npt" path="res://vehicle_body.tscn" id="3_sasra"]
+[ext_resource type="PackedScene" uid="uid://w6slt0xag2uf" path="res://bike.tscn" id="4_coq8p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6adnx"]
+size = Vector3(100, 14, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ia1lp"]
+size = Vector2(100, 100)
+
+[sub_resource type="Environment" id="Environment_ia1lp"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Node3D" type="Node3D" unique_id=858228603]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=432973177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.878768, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=288261077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043615103, 0, 0)
+shape = SubResource("BoxShape3D_6adnx")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=866069897]
+transform = Transform3D(1, 0, 0, 0, 0.9826969, 0.18522072, 0, -0.18522072, 0.9826969, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=671688136]
+transform = Transform3D(1, 0, 0, 0, 1, 1.4901161e-07, 0, -1.4901161e-07, 1, -0.004, -7, 0)
+shape = SubResource("BoxShape3D_6adnx")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=970869430]
+mesh = SubResource("PlaneMesh_ia1lp")
+
+[node name="CarBody" parent="." unique_id=952131387 instance=ExtResource("1_uhqqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.482014, 38.84033)
+
+[node name="CarPhysics" parent="." unique_id=2122341670 instance=ExtResource("2_ia1lp")]
+transform = Transform3D(-1.0000001, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1.0000001, 0, 7.3026896, 26.13078)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1799325901]
+environment = SubResource("Environment_ia1lp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=488210465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 64, 33)
+light_energy = 10.663
+shadow_enabled = true
+omni_range = 373.289
+
+[node name="VehicleBody3D" parent="." unique_id=2103107308 instance=ExtResource("3_sasra")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 7, 35)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=72373042]
+transform = Transform3D(1, 1.7763573e-15, 1.1722509e-07, -3.034009e-08, 0.9659259, 0.25881907, -1.1323075e-07, -0.25881907, 0.9659258, 15, 12, 48)
+
+[node name="Bike" parent="." unique_id=469826072 instance=ExtResource("4_coq8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 9, 44)
