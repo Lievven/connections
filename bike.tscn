@@ -10,31 +10,28 @@ inner_radius = 0.4
 outer_radius = 0.49
 
 [node name="Bike" type="VehicleBody3D" unique_id=469826072]
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-mass = 20.0
 script = ExtResource("1_77p72")
+motor_force = 200.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=121972741]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4901161e-08, 0.25, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4901161e-08, 0.45, 0)
 shape = SubResource("BoxShape3D_jymcu")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="." unique_id=842735571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-use_as_traction = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 1)
 use_as_steering = true
-wheel_roll_influence = 1.0
-suspension_stiffness = 40.0
+wheel_friction_slip = 10000.0
+suspension_stiffness = 100.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D" unique_id=1055664015]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("TorusMesh_jymcu")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="." unique_id=982171819]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -1)
 use_as_traction = true
-wheel_roll_influence = 1.0
-suspension_stiffness = 40.0
+wheel_friction_slip = 10000.0
+suspension_stiffness = 100.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D2" unique_id=1762386422]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)

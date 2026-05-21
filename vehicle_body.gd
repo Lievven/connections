@@ -27,6 +27,9 @@ func _process(delta: float) -> void:
 		steering_wheel.global_basis = steering_wheel.global_basis.orthonormalized()
 		steering_wheel.global_rotate(steering_wheel.global_basis.y, (steering - current_rotation) * 3)
 		current_rotation = steering
+	else:
+		var z_rotation = global_rotation_degrees.z
+		apply_torque(Vector3(0, 0, clampf(-z_rotation, -10, 10) * 40))
 	
 	test_drive(delta)
 
