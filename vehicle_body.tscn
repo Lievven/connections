@@ -26,6 +26,8 @@ bottom_radius = 0.05
 height = 0.3
 
 [node name="VehicleBody3D" type="VehicleBody3D" unique_id=2103107308 node_paths=PackedStringArray("steering_wheel")]
+mass = 39.31
+engine_force = -5.1
 script = ExtResource("1_3hh48")
 steering_wheel = NodePath("Node3D")
 
@@ -35,6 +37,7 @@ shape = SubResource("BoxShape3D_78c0k")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="." unique_id=1788777633]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1999999, 0, -1.2)
+engine_force = -5.1
 use_as_traction = true
 suspension_stiffness = 40.0
 
@@ -44,6 +47,7 @@ mesh = SubResource("CylinderMesh_78c0k")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="." unique_id=1646683065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, -1.2)
+engine_force = -5.1
 use_as_traction = true
 suspension_stiffness = 40.0
 
@@ -53,6 +57,7 @@ mesh = SubResource("CylinderMesh_78c0k")
 
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="." unique_id=1132912804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 1.4)
+engine_force = -5.1
 use_as_traction = true
 use_as_steering = true
 suspension_stiffness = 40.0
@@ -63,6 +68,7 @@ mesh = SubResource("CylinderMesh_3hh48")
 
 [node name="VehicleWheel3D4" type="VehicleWheel3D" parent="." unique_id=2013630196]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 1.4)
+engine_force = -5.1
 use_as_traction = true
 use_as_steering = true
 suspension_stiffness = 40.0

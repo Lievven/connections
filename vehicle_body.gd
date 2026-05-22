@@ -2,7 +2,9 @@ extends VehicleBody3D
 
 @export var max_steer: float = 35
 @export var steering_wheel: Node3D
-@export var motor_force: float = 40
+@export var motor_force: float = 40.0
+@export var motor_decay: float = 2
+@export var press_per_second: float = 8
 
 var current_rotation = 0
 
@@ -31,7 +33,11 @@ func _process(delta: float) -> void:
 		var z_rotation = global_rotation_degrees.z
 		apply_torque(Vector3(0, 0, clampf(-z_rotation, -10, 10) * 40))
 	
-	test_drive(delta)
+	var drop = delta * motor_force / motor_decay
+	drop = min(drop, abs(engine_force))
+	engine_force -= sign(engine_force) * drop
+	print(engine_force, " => ", motor_force)
+	#test_drive(delta)
 
 
 func test_drive(delta: float):
@@ -53,7 +59,11 @@ func test_drive(delta: float):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("accelerate"):
-		print(constant_force )
+		engine_force += (motor_force * 1.5 - engine_force) * 2 / motor_decay / press_per_second
+		engine_force = clamp(engine_force, -motor_force, motor_force)
+	if event.is_action_pressed("break"):
+		engine_force -= (motor_force * 1.5 - engine_force) * 2 / motor_decay / press_per_second
+		engine_force = clamp(engine_force, -motor_force, motor_force)
 	if event.is_action_pressed("ui_up"):
 		forwards_mode = true
 		engine_force = motor_force

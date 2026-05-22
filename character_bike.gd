@@ -1,35 +1,53 @@
 class_name CharacterBike
 extends CharacterBody3D
 
-@export var target_path: Path3D
-var target_index = 0
-var curve
-var target
+@export var rotation_speed: float = 3.0
+@export var speed: float = 10
+@export var target_path: ChoicePath
+var baked_curve: PackedVector3Array
+var target_index: int = 0
+var target_point: Vector3
 
 
 func _ready() -> void:
-	target_path
-	curve = target_path.curve.get_baked_points()
-	target = curve[0]
+	target_path.curve.bake_interval = target_path.bake_interval
+	baked_curve = target_path.curve.get_baked_points()
+	target_point = baked_curve.get(0) + target_path.global_position
 
 
-func _process(delta: float) -> void:
-	if not target:
-		return
-	var dist = target - position
+func _process(_delta: float) -> void:
+	$Target.global_position = target_point
+	var dist = target_point - global_position
 	dist.y = 0
-	if dist.length() < 1:
-		target_index += 1
-		print(target_index)
-		if curve.size() > target_index:
-			target = curve[target_index]
-		else:
-			target = null
+	if dist.length() > 0.5:
+		return
 		
+	target_index += 1
+	
+	if target_index >= baked_curve.size():
+		target_path = target_path.get_random_path()
+		if not target_path:
+			queue_free()
+			return
+		target_index = target_path.get_closest_entry(target_point)
+		baked_curve = target_path.curve.get_baked_points()
+	
+	target_point = baked_curve.get(target_index) + target_path.global_position
 
 
 func _physics_process(delta: float) -> void:
 	velocity = get_gravity()
+	var target_direction = global_position.direction_to(target_point)
+	target_direction.y = 0 # since bikes don't fly, we want to ignore the height
+	var target_angle = basis.z.signed_angle_to(target_direction, Vector3.UP)
+	rotate_y(rotation_speed * delta * clampf(target_angle, -1, 1))
+	
+	velocity += basis.z.normalized() * speed
+	
+	move_and_slide()
+
+
+func _debug_input(delta: float):
 	if Input.is_key_pressed(KEY_LEFT):
 		rotate_y(3 * delta)
 	if Input.is_key_pressed(KEY_RIGHT):
@@ -38,18 +56,3 @@ func _physics_process(delta: float) -> void:
 		velocity += basis.x * 5
 	if Input.is_key_pressed(KEY_DOWN):
 		velocity -= basis.x * 5
-	
-	if target:
-		var target_direction = global_position.direction_to(target)
-		target_direction.y = 0
-		var target_angle = Vector3(1, 0, 0).signed_angle_to(target_direction, Vector3.UP)
-		target_angle = rotation.y - target_angle
-		rotate_y(-3 * delta * clampf(target_angle, -1, 1))
-		
-		var target_horizontal = target - position
-		target_horizontal.y = 0
-		target_horizontal = target_horizontal.normalized()
-		velocity += target_horizontal * 5
-	
-	if not Input.is_key_pressed(KEY_SPACE):
-		move_and_slide()
