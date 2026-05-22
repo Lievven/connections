@@ -2,10 +2,9 @@ class_name BikeSpawner
 extends Area3D
 
 @export var entry_path: ChoicePath
-@export var max_spawn_distance: float = 10
+@export var bike_scene: PackedScene
 
 var spawn_timer = 0
-var bike_scene: PackedScene = preload("res://character_bike.tscn")
 
 
 func _process(delta: float) -> void:

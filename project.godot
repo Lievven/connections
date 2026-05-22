@@ -34,6 +34,7 @@ break={
 
 [layer_names]
 
+3d_physics/layer_3="PlayerOnly"
 3d_physics/layer_4="BikesOnly"
 
 [physics]

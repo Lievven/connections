@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://w6slt0xag2uf"]
 
-[ext_resource type="Script" uid="uid://bg5rlhhhu5w0a" path="res://vehicle_body.gd" id="1_77p72"]
+[ext_resource type="Script" uid="uid://bg5rlhhhu5w0a" path="res://vehicles/vehicle_body.gd" id="1_77p72"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jymcu"]
 size = Vector3(0.4, 0.5, 2)

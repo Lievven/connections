@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgcsce65t5trh"]
 
-[ext_resource type="Script" uid="uid://cngs6mqt0111y" path="res://car_body.gd" id="1_6stkd"]
+[ext_resource type="Script" uid="uid://cngs6mqt0111y" path="res://vehicles/car_body.gd" id="1_6stkd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bphw3"]
 

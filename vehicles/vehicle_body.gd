@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 	var drop = delta * motor_force / motor_decay
 	drop = min(drop, abs(engine_force))
 	engine_force -= sign(engine_force) * drop
-	print(engine_force, " => ", motor_force)
 	#test_drive(delta)
 
 

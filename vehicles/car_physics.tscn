@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bv6dy8wlbfkvf"]
 
-[ext_resource type="PackedScene" uid="uid://daapus5bfgefq" path="res://wheel.tscn" id="1_qouct"]
-[ext_resource type="Script" uid="uid://c34bnxush3v0d" path="res://car_physics.gd" id="1_yafcr"]
+[ext_resource type="PackedScene" uid="uid://daapus5bfgefq" path="res://vehicles/wheel.tscn" id="1_qouct"]
+[ext_resource type="Script" uid="uid://c34bnxush3v0d" path="res://vehicles/car_physics.gd" id="1_yafcr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sfj38"]
 size = Vector3(1.720459, 0.5, 2.8950195)
