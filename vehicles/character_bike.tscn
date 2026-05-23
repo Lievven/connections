@@ -30,7 +30,8 @@ collision_layer = 9
 script = ExtResource("1_42rb3")
 rotation_speed = 20.0
 max_speed = 20.0
-acceleration = 50.0
+acceleration = 100.0
+follow_distance = 8.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=857777649]
 shape = SubResource("CapsuleShape3D_4js54")

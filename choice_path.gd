@@ -3,11 +3,15 @@ extends Path3D
 
 @export var traffic_light: TrafficLight
 @export var connections: Array[ChoicePath]
-@export var entry_points: Array[int]
 @export var bake_interval: float = 3.0
 @export var max_bikes = 0
 
 var bikes_inside = 0
+
+var last_bike: CharacterBike = null
+
+# DEPRECATED
+var entry_points: Array[int]
 
 
 func _ready() -> void:
@@ -16,6 +20,14 @@ func _ready() -> void:
 
 func is_occupied() -> bool:
 	return max_bikes > 0 and bikes_inside >= max_bikes
+
+
+func register_bike(new_bike: CharacterBike) -> CharacterBike:
+	var previous_bike = last_bike
+	last_bike = new_bike
+	if previous_bike:
+		return previous_bike
+	return null
 
 
 func stop_bike(target_point: Vector3) -> bool:
@@ -74,6 +86,7 @@ func is_connection_blocked() -> bool:
 	return traffic_light.state != TrafficLight.StopLight.RED
 
 
+# DEPRECATED
 func get_closest_entry(point: Vector3) -> int:
 	var closest_entry = null
 	var entry_distance = INF

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://hqh8o2gdyqi"]
+
+[ext_resource type="Material" uid="uid://cc1rverjnfna8" path="res://checkpoint_arrow_material.tres" id="1_luqgl"]
+[ext_resource type="Script" uid="uid://dbu3o3jdea6cg" path="res://checkpoint.gd" id="1_r6hke"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_njsvn"]
+top_radius = 1.0
+bottom_radius = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_luqgl"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 4.0
+
+[node name="Checkpoint" type="Area3D" unique_id=217588542]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_r6hke")
+
+[node name="Arrow" type="MeshInstance3D" parent="." unique_id=682527173]
+mesh = SubResource("CylinderMesh_njsvn")
+surface_material_override/0 = ExtResource("1_luqgl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arrow" unique_id=531838497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+mesh = SubResource("CylinderMesh_luqgl")
+surface_material_override/0 = ExtResource("1_luqgl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

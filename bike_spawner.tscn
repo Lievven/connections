@@ -8,3 +8,4 @@ collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_0fhwy")
 bike_scene = ExtResource("2_o0hno")
+spawn_cooldown = 2.0

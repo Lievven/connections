@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://bvd6yq4ljpman"]
 
-[ext_resource type="PackedScene" uid="uid://cgcsce65t5trh" path="res://vehicles/car_body.tscn" id="1_uhqqe"]
-[ext_resource type="PackedScene" uid="uid://bv6dy8wlbfkvf" path="res://vehicles/car_physics.tscn" id="2_ia1lp"]
 [ext_resource type="PackedScene" uid="uid://c4845dvr05npt" path="res://vehicles/vehicle_body.tscn" id="3_sasra"]
-[ext_resource type="PackedScene" uid="uid://w6slt0xag2uf" path="res://vehicles/bike.tscn" id="4_coq8p"]
+[ext_resource type="PackedScene" uid="uid://hqh8o2gdyqi" path="res://checkpoint.tscn" id="5_2nij2"]
 [ext_resource type="Script" uid="uid://b3i36872q1ksy" path="res://choice_path.gd" id="6_7cbxl"]
 [ext_resource type="PackedScene" uid="uid://bq72yucdwefcj" path="res://bike_spawner.tscn" id="6_8pr8v"]
 [ext_resource type="PackedScene" uid="uid://duwyyuvh5oc7d" path="res://traffic_light.tscn" id="7_8pr8v"]
@@ -48,10 +46,17 @@ point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_vr1i5"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -65, 1, -5, 0, 0, 0, 0, 0, 0, -51, 1, 60, 0, 0, 0, 0, 0, 0, 5, 1, 89),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -54, 0, -14, 0, 0, 0, 0, 0, 0, -65, 1, -5, 0, 0, 0, 0, 0, 0, -51, 1, 60, 0, 0, 0, 0, 0, 0, 5, 1, 89),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_coq8p"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -24.03187, 6.6499863, 4.747452, 0, 0, 0, 0, 0, 0, -37.91331, -3.3049736, 0.38732147),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_buypi"]
 height = 5.0
@@ -59,6 +64,10 @@ radius = 5.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8pr8v"]
 height = 10.0
+radius = 5.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2nij2"]
+height = 20.0
 radius = 5.0
 
 [node name="Node3D" type="Node3D" unique_id=858228603]
@@ -117,12 +126,6 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D5" unique_id=1723058452]
 mesh = SubResource("PlaneMesh_ia1lp")
 
-[node name="CarBody" parent="." unique_id=952131387 instance=ExtResource("1_uhqqe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.482014, 38.84033)
-
-[node name="CarPhysics" parent="." unique_id=2122341670 instance=ExtResource("2_ia1lp")]
-transform = Transform3D(-1.0000001, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1.0000001, 8, 9.302689, -32.86922)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1799325901]
 environment = SubResource("Environment_ia1lp")
 
@@ -138,15 +141,11 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 
 [node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=72373042]
 transform = Transform3D(-1, -7.619396e-09, 8.70901e-08, 0, 0.99619466, 0.08715573, -8.742278e-08, 0.08715573, -0.99619466, 0, 1, 0)
 
-[node name="Bike" parent="." unique_id=469826072 instance=ExtResource("4_coq8p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 9, 44)
-
 [node name="ChoicePath" type="Path3D" parent="." unique_id=1315854618 node_paths=PackedStringArray("connections")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 39)
 curve = SubResource("Curve3D_8pr8v")
 script = ExtResource("6_7cbxl")
 connections = [NodePath("ChoicePath4"), NodePath("ChoicePath2")]
-entry_points = Array[int]([0])
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
 [node name="ChoicePath4" type="Path3D" parent="ChoicePath" unique_id=747784266 node_paths=PackedStringArray("connections")]
@@ -154,7 +153,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -3, -23)
 curve = SubResource("Curve3D_rpuu0")
 script = ExtResource("6_7cbxl")
 connections = [NodePath("../ChoicePath")]
-entry_points = Array[int]([0])
 max_bikes = 3
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
@@ -163,8 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -39)
 curve = SubResource("Curve3D_buypi")
 script = ExtResource("6_7cbxl")
 traffic_light = NodePath("../../TrafficLight")
-connections = [NodePath("../ChoicePath3")]
-entry_points = Array[int]([0])
+connections = [NodePath("../ChoicePath5")]
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
 [node name="ChoicePath2" type="Path3D" parent="ChoicePath" unique_id=1126348419 node_paths=PackedStringArray("connections")]
@@ -172,14 +169,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -4, -28)
 curve = SubResource("Curve3D_njel3")
 script = ExtResource("6_7cbxl")
 connections = [NodePath("../ChoicePath3")]
-entry_points = Array[int]([0])
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
 [node name="ChoicePath3" type="Path3D" parent="ChoicePath" unique_id=1012526824]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, -6, -114)
 curve = SubResource("Curve3D_vr1i5")
 script = ExtResource("6_7cbxl")
-entry_points = Array[int]([0, 1])
+metadata/_custom_type_script = "uid://b3i36872q1ksy"
+
+[node name="ChoicePath5" type="Path3D" parent="ChoicePath" unique_id=1034848467 node_paths=PackedStringArray("connections")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -135)
+curve = SubResource("Curve3D_coq8p")
+script = ExtResource("6_7cbxl")
+connections = [NodePath("../ChoicePath3")]
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
 [node name="BikeSpawner" parent="ChoicePath" unique_id=1282200984 node_paths=PackedStringArray("entry_path") instance=ExtResource("6_8pr8v")]
@@ -188,9 +190,6 @@ entry_path = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChoicePath/BikeSpawner" unique_id=1705509138]
 shape = SubResource("CylinderShape3D_buypi")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1858044562]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 19, 50)
 
 [node name="TrafficLight" parent="." unique_id=1422616034 node_paths=PackedStringArray("blocked_intersection") instance=ExtResource("7_8pr8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 9, 0)
@@ -202,3 +201,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLight/Area3D" unique_id=766161198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
 shape = SubResource("CylinderShape3D_8pr8v")
+
+[node name="Checkpoint" parent="." unique_id=217588542 node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_2nij2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 9, 22)
+next_checkpoint = NodePath("../Checkpoint2")
+is_active = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint" unique_id=1927727473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+shape = SubResource("CylinderShape3D_2nij2")
+
+[node name="Checkpoint2" parent="." unique_id=18349808 node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_2nij2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 7, -34)
+next_checkpoint = NodePath("../Checkpoint3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2" unique_id=1653206650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+shape = SubResource("CylinderShape3D_2nij2")
+
+[node name="Checkpoint3" parent="." unique_id=1663929540 node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_2nij2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 7, -64)
+next_checkpoint = NodePath("../Checkpoint4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint3" unique_id=874815337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+shape = SubResource("CylinderShape3D_2nij2")
+
+[node name="Checkpoint4" parent="." unique_id=869877509 instance=ExtResource("5_2nij2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 13, 36)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint4" unique_id=1908106947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+shape = SubResource("CylinderShape3D_2nij2")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1858044562]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 19, 50)
