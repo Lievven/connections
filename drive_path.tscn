@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c4ttgqecubvhg"]
+
+[ext_resource type="Script" uid="uid://c121ns2voswji" path="res://drive_path.gd" id="1_8nmjh"]
+
+[sub_resource type="Curve3D" id="Curve3D_8nmjh"]
+
+[node name="DrivePath" type="Path3D" unique_id=1548245820]
+visible = false
+curve = SubResource("Curve3D_8nmjh")
+script = ExtResource("1_8nmjh")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=1599244638]
+cast_shadow = 0
+polygon = PackedVector2Array(0, 0, 0, 0.2, 0.2, 0.2, 0.2, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false

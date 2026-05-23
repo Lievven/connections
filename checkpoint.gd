@@ -30,5 +30,6 @@ func _on_body_entered(body: Node3D) -> void:
 	if next_checkpoint:
 		next_checkpoint.activate_checkpoint()
 		queue_free()
+		return
 	
 	print("WE HAVE A WINNER")

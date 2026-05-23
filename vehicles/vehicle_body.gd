@@ -1,3 +1,4 @@
+class_name PlayerVehicle
 extends VehicleBody3D
 
 @export var max_steer: float = 35
@@ -22,7 +23,8 @@ func _process(delta: float) -> void:
 	
 	mouse_position = clampf(mouse_position, 0, screen_width)
 	var steer_input = mouse_position / screen_width
-	steering = deg_to_rad(-max_steer + 2 * max_steer * steer_input)
+	if not freeze:
+		steering = deg_to_rad(-max_steer + 2 * max_steer * steer_input)
 	
 	if steering_wheel:
 		# Important to normalize, otherwise accumulated rounding errors lead to bugs.
