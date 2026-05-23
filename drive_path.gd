@@ -6,7 +6,7 @@ extends Path3D
 @export var recording_interval: float = 1.0
 
 var timestamps: Array[float] = []
-var angles: Array[Vector3] = []
+var angles: Array[Basis] = []
 var steerings: Array[float] = []
 
 var last_recording: Vector3
@@ -34,24 +34,25 @@ func follow_drive_path():
 	drive_tween.finished.connect(follow_drive_path)
 	drive_tween.set_parallel(true)
 	
+	var step = timestamps[replay_step]
+	
 	drive_tween.tween_property(player_vehicle, \
 		"global_position", \
 		curve.get_point_position(replay_step), \
-		timestamps[replay_step])
-		
+		step)
+	
 	drive_tween.tween_property(player_vehicle, \
-		"rotation", \
+		"global_basis", \
 		angles[replay_step], \
-		timestamps[replay_step])
+		step)
 	
 	drive_tween.tween_property(player_vehicle, \
 		"steering", \
 		steerings[replay_step], \
-		timestamps[replay_step])
+		step)
 	
 	replay_step += 1
 	replay_step %= angles.size()
-	print(timestamps[replay_step])
 
 
 func add_recording_point():
@@ -59,7 +60,7 @@ func add_recording_point():
 		last_recording = player_vehicle.global_position
 		timestamps.append(last_timestamp)
 		last_timestamp = 0
-		angles.append(player_vehicle.rotation)
+		angles.append(player_vehicle.global_basis)
 		steerings.append(player_vehicle.steering)
 
 

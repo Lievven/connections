@@ -4,6 +4,19 @@ extends Node3D
 
 var changing_volume: bool = false
 var volume: float = 1
+var current_time: float = 0
+
+
+
+func _process(delta: float) -> void:
+	current_time += delta
+	var seconds = current_time
+	var minutes = floori(seconds / 60)
+	var centis = floori(seconds * 100)
+	seconds = floori(seconds)
+	centis -= seconds * 100
+	seconds %= 60
+	$Label3D.text = "%02d:%02d:%02d" % [minutes, seconds, centis]
 
 
 func _input(event: InputEvent) -> void:
@@ -16,6 +29,7 @@ func _input(event: InputEvent) -> void:
 		volume += change
 		volume = clampf(volume, 0, 1)
 		print("Volume: ", volume, " - ", change)
+
 
 func _on_volume_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:

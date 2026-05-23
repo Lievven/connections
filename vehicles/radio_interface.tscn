@@ -26,6 +26,10 @@ albedo_color = Color(0.39, 0.302315, 0.11310001, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsdfp"]
 size = Vector3(0.02, 0.02, 0.03)
 
+[sub_resource type="GDScript" id="GDScript_gftep"]
+script/source = "extends Label3D
+"
+
 [node name="RadioInterface" type="Node3D" unique_id=1602159752]
 script = ExtResource("1_gftep")
 
@@ -84,6 +88,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_02dpw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button4" unique_id=16914108]
 shape = SubResource("BoxShape3D_wsdfp")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1647195583]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.10318936, 0.033053853, -0.044586748)
+text = "00:00:00"
+font_size = 9
+outline_size = 4
+script = SubResource("GDScript_gftep")
 
 [connection signal="input_event" from="Volume" to="." method="_on_volume_input_event"]
 [connection signal="input_event" from="Button1" to="." method="_on_button_input_event" flags=18]
