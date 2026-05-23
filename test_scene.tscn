@@ -136,7 +136,7 @@ omni_range = 373.289
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 7, 35)
 
 [node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=72373042]
-transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, 0, 2, -3)
+transform = Transform3D(-1, -7.619396e-09, 8.70901e-08, 0, 0.99619466, 0.08715573, -8.742278e-08, 0.08715573, -0.99619466, 0, 1, 0)
 
 [node name="Bike" parent="." unique_id=469826072 instance=ExtResource("4_coq8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 9, 44)

@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bs6816iukwwmo"]
+
+[ext_resource type="Script" uid="uid://dgth6emwjoo72" path="res://vehicles/radio_interface.gd" id="1_gftep"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3srsj"]
+size = Vector3(0.2, 0.2, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gftep"]
+top_radius = 0.04
+bottom_radius = 0.03
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3srsj"]
+albedo_color = Color(0.3, 0.18, 0.18, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3srsj"]
+height = 0.1
+radius = 0.035
+
+[sub_resource type="BoxMesh" id="BoxMesh_gftep"]
+size = Vector3(0.02, 0.02, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02dpw"]
+albedo_color = Color(0.39, 0.302315, 0.11310001, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsdfp"]
+size = Vector3(0.02, 0.02, 0.03)
+
+[node name="RadioInterface" type="Node3D" unique_id=1602159752]
+script = ExtResource("1_gftep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2048292398]
+mesh = SubResource("BoxMesh_3srsj")
+
+[node name="Volume" type="Area3D" parent="." unique_id=905929986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008279942, 0, 0)
+collision_priority = 10.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Volume" unique_id=41929068]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.066770285, 0.034294836, 0.092419185)
+mesh = SubResource("CylinderMesh_gftep")
+surface_material_override/0 = SubResource("StandardMaterial3D_3srsj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Volume" unique_id=1754714835]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.066770285, 0.034294836, 0.092419185)
+shape = SubResource("CylinderShape3D_3srsj")
+
+[node name="Button1" type="Area3D" parent="." unique_id=1586958380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105271086, -0.060396403, 0.08399317)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button1" unique_id=857016157]
+mesh = SubResource("BoxMesh_gftep")
+surface_material_override/0 = SubResource("StandardMaterial3D_02dpw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button1" unique_id=1624383582]
+shape = SubResource("BoxShape3D_wsdfp")
+
+[node name="Button2" type="Area3D" parent="." unique_id=761086612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105271086, -0.060396403, 0.032380357)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button2" unique_id=556077142]
+mesh = SubResource("BoxMesh_gftep")
+surface_material_override/0 = SubResource("StandardMaterial3D_02dpw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button2" unique_id=1744723625]
+shape = SubResource("BoxShape3D_wsdfp")
+
+[node name="Button3" type="Area3D" parent="." unique_id=1025055486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105271086, -0.060396403, -0.02064474)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button3" unique_id=314886249]
+mesh = SubResource("BoxMesh_gftep")
+surface_material_override/0 = SubResource("StandardMaterial3D_02dpw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button3" unique_id=65220062]
+shape = SubResource("BoxShape3D_wsdfp")
+
+[node name="Button4" type="Area3D" parent="." unique_id=1648819126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105271086, -0.060396403, -0.08115739)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button4" unique_id=1584261395]
+mesh = SubResource("BoxMesh_gftep")
+surface_material_override/0 = SubResource("StandardMaterial3D_02dpw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button4" unique_id=16914108]
+shape = SubResource("BoxShape3D_wsdfp")
+
+[connection signal="input_event" from="Volume" to="." method="_on_volume_input_event"]
+[connection signal="input_event" from="Button1" to="." method="_on_button_input_event" flags=18]
+[connection signal="input_event" from="Button2" to="." method="_on_button_input_event" flags=18]
+[connection signal="input_event" from="Button3" to="." method="_on_button_input_event" flags=18]
+[connection signal="input_event" from="Button4" to="." method="_on_button_input_event" flags=18]
