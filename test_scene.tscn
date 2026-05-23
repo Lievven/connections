@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bvd6yq4ljpman"]
 
+[ext_resource type="PackedScene" uid="uid://dyhc35lhjsnfs" path="res://phone_menu.tscn" id="2_8pr8v"]
 [ext_resource type="PackedScene" uid="uid://c4845dvr05npt" path="res://vehicles/vehicle_body.tscn" id="3_sasra"]
 [ext_resource type="PackedScene" uid="uid://hqh8o2gdyqi" path="res://checkpoint.tscn" id="5_2nij2"]
 [ext_resource type="Script" uid="uid://b3i36872q1ksy" path="res://choice_path.gd" id="6_7cbxl"]
@@ -141,6 +142,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 
 
 [node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=72373042]
 transform = Transform3D(-1, -7.619396e-09, 8.70901e-08, 0, 0.99619466, 0.08715573, -8.742278e-08, 0.08715573, -0.99619466, 0, 1, 0)
+
+[node name="PhoneMenu" parent="VehicleBody3D" unique_id=708378194 node_paths=PackedStringArray("inactive_target") instance=ExtResource("2_8pr8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0058498, 0.36906052)
+inactive_target = NodePath("../Marker")
+
+[node name="Marker" type="Marker3D" parent="VehicleBody3D" unique_id=18874712]
+transform = Transform3D(0.2963583, 0.18280986, -0.9374179, -0.9550768, 0.05672551, -0.29087874, 9.1749985e-09, 0.9815104, 0.19140853, -0.3947153, 0.4856944, -0.13423538)
 
 [node name="ChoicePath" type="Path3D" parent="." unique_id=1315854618 node_paths=PackedStringArray("connections")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 39)

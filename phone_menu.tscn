@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dyhc35lhjsnfs"]
+
+[ext_resource type="Script" uid="uid://cycmg5b8v65gc" path="res://phone_menu.gd" id="1_v4yfp"]
+[ext_resource type="PackedScene" uid="uid://dl7on1flvjpxf" path="res://pause_menu.tscn" id="1_xywsr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7cbxl"]
+size = Vector3(0.3, 0.4, 0.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7cbxl"]
+viewport_path = NodePath("SubViewport")
+
+[node name="PhoneMenu" type="MeshInstance3D" unique_id=708378194]
+process_mode = 3
+mesh = SubResource("BoxMesh_7cbxl")
+script = ExtResource("1_v4yfp")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=930313683]
+transform = Transform3D(-1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1, 0, 0, -0.0074954405)
+pixel_size = 0.001
+texture = SubResource("ViewportTexture_7cbxl")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2113934400]
+size = Vector2i(300, 400)
+
+[node name="PauseMenu" parent="SubViewport" unique_id=2089833742 instance=ExtResource("1_xywsr")]
