@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bq72yucdwefcj"]
 
-[ext_resource type="Script" uid="uid://dgmehr15q7ur5" path="res://bike_spawner.gd" id="1_0fhwy"]
+[ext_resource type="Script" uid="uid://dgmehr15q7ur5" path="res://utilities/bike_spawner.gd" id="1_0fhwy"]
 [ext_resource type="PackedScene" uid="uid://d15y0x3eg26qp" path="res://vehicles/character_bike.tscn" id="2_o0hno"]
 
 [node name="BikeSpawner" type="Area3D" unique_id=1927963118]

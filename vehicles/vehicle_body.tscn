@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4845dvr05npt"]
 
 [ext_resource type="Script" uid="uid://bg5rlhhhu5w0a" path="res://vehicles/vehicle_body.gd" id="1_3hh48"]
-[ext_resource type="PackedScene" uid="uid://bs6816iukwwmo" path="res://vehicles/radio_interface.tscn" id="2_1igo3"]
+[ext_resource type="PackedScene" uid="uid://bs6816iukwwmo" path="res://menus/radio_interface.tscn" id="2_1igo3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1igo3"]
 bounce = 1.0

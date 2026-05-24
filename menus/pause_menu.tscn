@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dl7on1flvjpxf"]
 
-[ext_resource type="Script" uid="uid://biocvt642osuq" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://biocvt642osuq" path="res://menus/pause_menu.gd" id="1_hdmo1"]
 
 [node name="PauseMenu" type="Control" unique_id=2089833742]
 custom_minimum_size = Vector2(300, 400)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4ttgqecubvhg"]
 
-[ext_resource type="Script" uid="uid://c121ns2voswji" path="res://drive_path.gd" id="1_8nmjh"]
+[ext_resource type="Script" uid="uid://c121ns2voswji" path="res://utilities/drive_path.gd" id="1_8nmjh"]
 
 [sub_resource type="Curve3D" id="Curve3D_8nmjh"]
 

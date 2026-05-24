@@ -18,6 +18,8 @@ var replay_step: int = 0
 
 func _ready() -> void:
 	connection_manager.start_replay.connect(start_replay)
+	connection_manager.import_replay.connect(import_drive_path)
+	connection_manager.export_replay.connect(export_drive_path)
 
 
 func _process(delta: float) -> void:
@@ -101,3 +103,73 @@ func end_replay():
 	steerings.clear()
 	last_timestamp = 0
 	replay_step = 0
+
+
+func import_drive_path():
+	var json = JSON.new()
+	var sanity_check = json.parse(DisplayServer.clipboard_get())
+	if sanity_check != OK:
+		print("INVALID JSON")
+		return
+	
+	var dict = json.data
+	
+	timestamps.assign(dict["timestamps"])
+	if not timestamps:
+		print("NO VALID TIMESTAMPS")
+		return
+	var sample_count = timestamps.size()
+	
+	if not dict["bases"] or dict["bases"].size() != sample_count:
+		print("NO VALID BASES")
+		return
+	angles = []
+	angles.resize(sample_count)
+	var i = 0
+	for b in dict["bases"]:
+		angles[i] = read_base(b)
+		i+= 1
+	
+	steerings.assign(dict["steerings"])
+	if not steerings or steerings.size() != sample_count:
+		print("NO VALID STEERING")
+		return
+		
+	var points = dict["points"]
+	if not points or points.size() != sample_count:
+		print("NO VALID POINTS")
+		return
+	curve.clear_points()
+	for p in points:
+		curve.add_point(read_vector(p))
+
+
+func export_drive_path():
+	print("EXPORT")
+	var dict: Dictionary = {}
+	var points: Array[Vector3] = []
+	points.resize(curve.point_count)
+	for i in curve.point_count:
+		points[i] = curve.get_point_position(i)
+		
+	dict["points"] = points
+	dict["timestamps"] = timestamps
+	dict["bases"] = angles
+	dict["steerings"] = steerings
+	
+	var path: String = JSON.stringify(dict)
+	DisplayServer.clipboard_set(path)
+
+
+func read_vector(stringified: String) -> Vector3:
+	var num_strings = stringified.remove_chars("XYZ[()]:,").split(" ")
+	return Vector3(num_strings[0].to_float(), num_strings[1].to_float(), num_strings[2].to_float())
+
+
+func read_base(stringified: String) -> Basis:
+	var new_base = Basis()
+	var num_strings = stringified.remove_chars("XYZ[()]:,").split(" ")
+	new_base.x = Vector3(num_strings[1].to_float(), num_strings[2].to_float(), num_strings[3].to_float())
+	new_base.y = Vector3(num_strings[5].to_float(), num_strings[6].to_float(), num_strings[7].to_float())
+	new_base.z = Vector3(num_strings[9].to_float(), num_strings[10].to_float(), num_strings[11].to_float())
+	return new_base

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyhc35lhjsnfs"]
 
-[ext_resource type="Script" uid="uid://cycmg5b8v65gc" path="res://phone_menu.gd" id="1_v4yfp"]
-[ext_resource type="PackedScene" uid="uid://dl7on1flvjpxf" path="res://pause_menu.tscn" id="1_xywsr"]
+[ext_resource type="Script" uid="uid://cycmg5b8v65gc" path="res://menus/phone_menu.gd" id="1_v4yfp"]
+[ext_resource type="PackedScene" uid="uid://dl7on1flvjpxf" path="res://menus/pause_menu.tscn" id="1_xywsr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7cbxl"]
 size = Vector3(0.3, 0.4, 0.01)
@@ -63,5 +63,6 @@ size = Vector2i(300, 400)
 
 [node name="PauseMenu" parent="Sprite3D/SubViewport" unique_id=2089833742 node_paths=PackedStringArray("phone_menu") instance=ExtResource("1_xywsr")]
 phone_menu = NodePath("../../..")
+switch_menu_time = 0.5
 
 [connection signal="input_event" from="Sprite3D/Area3D" to="Sprite3D" method="_on_input_event"]

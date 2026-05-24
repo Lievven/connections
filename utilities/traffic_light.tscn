@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://duwyyuvh5oc7d"]
 
-[ext_resource type="Script" uid="uid://bvu6amg1y45ba" path="res://traffic_light.gd" id="1_4ucqr"]
+[ext_resource type="Script" uid="uid://bvu6amg1y45ba" path="res://utilities/traffic_light.gd" id="1_4ucqr"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qpq6m"]
 radius = 0.25

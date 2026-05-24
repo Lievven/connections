@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bvd6yq4ljpman"]
 
-[ext_resource type="PackedScene" uid="uid://dyhc35lhjsnfs" path="res://phone_menu.tscn" id="2_8pr8v"]
+[ext_resource type="PackedScene" uid="uid://dyhc35lhjsnfs" path="res://menus/phone_menu.tscn" id="2_8pr8v"]
+[ext_resource type="Script" uid="uid://b3i36872q1ksy" path="res://utilities/choice_path.gd" id="3_8pr8v"]
 [ext_resource type="PackedScene" uid="uid://c4845dvr05npt" path="res://vehicles/vehicle_body.tscn" id="3_sasra"]
-[ext_resource type="PackedScene" uid="uid://hqh8o2gdyqi" path="res://checkpoint.tscn" id="5_2nij2"]
-[ext_resource type="Script" uid="uid://b3i36872q1ksy" path="res://choice_path.gd" id="6_7cbxl"]
-[ext_resource type="PackedScene" uid="uid://bq72yucdwefcj" path="res://bike_spawner.tscn" id="6_8pr8v"]
-[ext_resource type="PackedScene" uid="uid://c4ttgqecubvhg" path="res://drive_path.tscn" id="6_buypi"]
-[ext_resource type="PackedScene" uid="uid://duwyyuvh5oc7d" path="res://traffic_light.tscn" id="7_8pr8v"]
+[ext_resource type="PackedScene" uid="uid://hqh8o2gdyqi" path="res://utilities/checkpoint.tscn" id="5_2nij2"]
+[ext_resource type="PackedScene" uid="uid://bq72yucdwefcj" path="res://utilities/bike_spawner.tscn" id="6_8pr8v"]
+[ext_resource type="PackedScene" uid="uid://c4ttgqecubvhg" path="res://utilities/drive_path.tscn" id="6_buypi"]
+[ext_resource type="PackedScene" uid="uid://duwyyuvh5oc7d" path="res://utilities/traffic_light.tscn" id="7_8pr8v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6adnx"]
 size = Vector3(100, 14, 100)
@@ -150,47 +150,40 @@ inactive_target = NodePath("../Marker")
 [node name="Marker" type="Marker3D" parent="VehicleBody3D" unique_id=18874712]
 transform = Transform3D(0.2963583, 0.18280986, -0.9374179, -0.9550768, 0.05672551, -0.29087874, 9.1749985e-09, 0.9815104, 0.19140853, -0.3947153, 0.4856944, -0.13423538)
 
-[node name="ChoicePath" type="Path3D" parent="." unique_id=1315854618 node_paths=PackedStringArray("connections")]
+[node name="ChoicePath" type="Path3D" parent="." unique_id=1315854618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 39)
 curve = SubResource("Curve3D_8pr8v")
-script = ExtResource("6_7cbxl")
-connections = [NodePath("ChoicePath4"), NodePath("ChoicePath2")]
+script = ExtResource("3_8pr8v")
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
-[node name="ChoicePath4" type="Path3D" parent="ChoicePath" unique_id=747784266 node_paths=PackedStringArray("connections")]
+[node name="ChoicePath4" type="Path3D" parent="ChoicePath" unique_id=747784266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -3, -23)
 curve = SubResource("Curve3D_rpuu0")
-script = ExtResource("6_7cbxl")
-connections = [NodePath("../ChoicePath")]
-max_bikes = 3
+script = ExtResource("3_8pr8v")
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
-[node name="ChoicePath" type="Path3D" parent="ChoicePath" unique_id=1984186258 node_paths=PackedStringArray("traffic_light", "connections")]
+[node name="ChoicePath" type="Path3D" parent="ChoicePath" unique_id=1984186258]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -39)
 curve = SubResource("Curve3D_buypi")
-script = ExtResource("6_7cbxl")
-traffic_light = NodePath("../../TrafficLight")
-connections = [NodePath("../ChoicePath5")]
+script = ExtResource("3_8pr8v")
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
-[node name="ChoicePath2" type="Path3D" parent="ChoicePath" unique_id=1126348419 node_paths=PackedStringArray("connections")]
+[node name="ChoicePath2" type="Path3D" parent="ChoicePath" unique_id=1126348419]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -4, -28)
 curve = SubResource("Curve3D_njel3")
-script = ExtResource("6_7cbxl")
-connections = [NodePath("../ChoicePath3")]
+script = ExtResource("3_8pr8v")
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
 [node name="ChoicePath3" type="Path3D" parent="ChoicePath" unique_id=1012526824]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, -6, -114)
 curve = SubResource("Curve3D_vr1i5")
-script = ExtResource("6_7cbxl")
+script = ExtResource("3_8pr8v")
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
-[node name="ChoicePath5" type="Path3D" parent="ChoicePath" unique_id=1034848467 node_paths=PackedStringArray("connections")]
+[node name="ChoicePath5" type="Path3D" parent="ChoicePath" unique_id=1034848467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -135)
 curve = SubResource("Curve3D_coq8p")
-script = ExtResource("6_7cbxl")
-connections = [NodePath("../ChoicePath3")]
+script = ExtResource("3_8pr8v")
 metadata/_custom_type_script = "uid://b3i36872q1ksy"
 
 [node name="BikeSpawner" parent="ChoicePath" unique_id=1282200984 node_paths=PackedStringArray("entry_path") instance=ExtResource("6_8pr8v")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bs6816iukwwmo"]
 
-[ext_resource type="Script" uid="uid://dgth6emwjoo72" path="res://vehicles/radio_interface.gd" id="1_gftep"]
+[ext_resource type="Script" uid="uid://dgth6emwjoo72" path="res://menus/radio_interface.gd" id="1_gftep"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3srsj"]
 size = Vector3(0.2, 0.2, 0.3)

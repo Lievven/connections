@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hqh8o2gdyqi"]
 
-[ext_resource type="Material" uid="uid://cc1rverjnfna8" path="res://checkpoint_arrow_material.tres" id="1_luqgl"]
-[ext_resource type="Script" uid="uid://dbu3o3jdea6cg" path="res://checkpoint.gd" id="1_r6hke"]
+[ext_resource type="Material" uid="uid://cc1rverjnfna8" path="res://utilities/checkpoint_arrow_material.tres" id="1_luqgl"]
+[ext_resource type="Script" uid="uid://dbu3o3jdea6cg" path="res://utilities/checkpoint.gd" id="1_r6hke"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_njsvn"]
 top_radius = 1.0

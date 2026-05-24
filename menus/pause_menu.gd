@@ -90,9 +90,9 @@ func _start_new_game() -> void:
 func _load_replay() -> void:
 	if not connection_manager.is_menu_active:
 		return
-	# TODO: implement loading replay
+	switch_menu(Menu.PAUSE)
+	connection_manager.import_replay.emit()
 	connection_manager.start_replay.emit()
-	phone_menu.deactivate_menu()
 
 
 func _start_replay() -> void:
@@ -105,7 +105,7 @@ func _start_replay() -> void:
 func _copy_replay() -> void:
 	if not connection_manager.is_menu_active:
 		return
-	print("COPY REPLAY")
+	connection_manager.export_replay.emit()
 
 
 func _return_to_main_menu() -> void:

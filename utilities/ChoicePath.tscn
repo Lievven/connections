@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hbo41845be8g"]
 
-[ext_resource type="Script" uid="uid://b3i36872q1ksy" path="res://choice_path.gd" id="1_a8kw0"]
+[ext_resource type="Script" uid="uid://b3i36872q1ksy" path="res://utilities/choice_path.gd" id="1_a8kw0"]
 
 [node name="ChoicePath" type="Path3D" unique_id=747330257]
 script = ExtResource("1_a8kw0")
