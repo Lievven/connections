@@ -56,10 +56,6 @@ func _process(delta: float) -> void:
 	$ControlsMenu.position.y = controls_menu_position.y + menu_offset.y
 
 
-func _input(event: InputEvent) -> void:
-	pass
-
-
 func _continue_game() -> void:
 	if not connection_manager.is_menu_active:
 		return

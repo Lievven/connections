@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dl7on1flvjpxf"]
 
 [ext_resource type="Script" uid="uid://biocvt642osuq" path="res://menus/pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="PackedScene" uid="uid://b5om20vrcrl1n" path="res://menus/keybind_button.tscn" id="2_p1qj3"]
 
 [node name="PauseMenu" type="Control" unique_id=2089833742]
 custom_minimum_size = Vector2(300, 400)
@@ -162,46 +163,60 @@ size_flags_vertical = 3
 columns = 3
 
 [node name="Header" type="Label" parent="ControlsMenu/GridContainer" unique_id=1046227769]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 text = "Action"
 
 [node name="Header2" type="Label" parent="ControlsMenu/GridContainer" unique_id=2032115158]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-text = "Button 1"
+text = "Keybind 1"
+horizontal_alignment = 1
 
 [node name="Header3" type="Label" parent="ControlsMenu/GridContainer" unique_id=1957848954]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-text = "Button 2"
+text = "Keybind 2"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="ControlsMenu/GridContainer" unique_id=1631972786]
 layout_mode = 2
 text = "Accelerate"
 
-[node name="Button" type="Button" parent="ControlsMenu/GridContainer" unique_id=1710040391]
+[node name="KeyButton1" parent="ControlsMenu/GridContainer" unique_id=2127445497 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+linked_action = "accelerate"
 
-[node name="Button2" type="Button" parent="ControlsMenu/GridContainer" unique_id=1695748387]
+[node name="KeyButton2" parent="ControlsMenu/GridContainer" unique_id=1031952461 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+linked_action = "accelerate"
+event_index = 1
 
 [node name="Label2" type="Label" parent="ControlsMenu/GridContainer" unique_id=1031498147]
 layout_mode = 2
 text = "Brake"
 
-[node name="Button4" type="Button" parent="ControlsMenu/GridContainer" unique_id=1737211315]
+[node name="KeyButton3" parent="ControlsMenu/GridContainer" unique_id=1723945566 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+linked_action = "brake"
 
-[node name="Button3" type="Button" parent="ControlsMenu/GridContainer" unique_id=1627082976]
+[node name="KeyButton4" parent="ControlsMenu/GridContainer" unique_id=489177832 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+linked_action = "brake"
+event_index = 1
 
 [node name="Label3" type="Label" parent="ControlsMenu/GridContainer" unique_id=781927452]
 layout_mode = 2
 text = "Pause"
 
-[node name="Button5" type="Button" parent="ControlsMenu/GridContainer" unique_id=1257198478]
+[node name="KeyButton5" parent="ControlsMenu/GridContainer" unique_id=2026950708 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+linked_action = "pause"
 
-[node name="Button6" type="Button" parent="ControlsMenu/GridContainer" unique_id=1386891069]
+[node name="KeyButton6" parent="ControlsMenu/GridContainer" unique_id=1224522357 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+linked_action = "pause"
+event_index = 1
 
 [node name="PreviousMenu" type="Button" parent="ControlsMenu" unique_id=574156245]
 layout_mode = 2

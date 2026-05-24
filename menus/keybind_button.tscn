@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b5om20vrcrl1n"]
+
+[ext_resource type="Script" uid="uid://dx0om6ais00ww" path="res://menus/keybind_button.gd" id="1_0yagd"]
+
+[sub_resource type="Theme" id="Theme_0yagd"]
+default_font_size = 12
+
+[node name="KeybindButton" type="Button" unique_id=2127445497]
+theme = SubResource("Theme_0yagd")
+text_overrun_behavior = 2
+autowrap_trim_flags = 192
+script = ExtResource("1_0yagd")
+
+[connection signal="pressed" from="." to="." method="await_assign_key"]

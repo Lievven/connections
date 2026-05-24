@@ -63,6 +63,5 @@ size = Vector2i(300, 400)
 
 [node name="PauseMenu" parent="Sprite3D/SubViewport" unique_id=2089833742 node_paths=PackedStringArray("phone_menu") instance=ExtResource("1_xywsr")]
 phone_menu = NodePath("../../..")
-switch_menu_time = 0.5
 
 [connection signal="input_event" from="Sprite3D/Area3D" to="Sprite3D" method="_on_input_event"]

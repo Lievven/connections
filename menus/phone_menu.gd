@@ -17,7 +17,8 @@ func _ready() -> void:
 	activate_menu()
 	connection_manager.win_run.connect(activate_menu)
 
-func _input(event: InputEvent) -> void:
+
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if visible:
 			deactivate_menu()
