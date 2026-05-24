@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bvd6yq4ljpman"]
 
+[ext_resource type="Sky" uid="uid://xxak1xrpjds8" path="res://sky_try.tres" id="1_buypi"]
 [ext_resource type="PackedScene" uid="uid://dyhc35lhjsnfs" path="res://menus/phone_menu.tscn" id="2_8pr8v"]
 [ext_resource type="Script" uid="uid://b3i36872q1ksy" path="res://utilities/choice_path.gd" id="3_8pr8v"]
 [ext_resource type="PackedScene" uid="uid://c4845dvr05npt" path="res://vehicles/vehicle_body.tscn" id="3_sasra"]
@@ -15,6 +16,8 @@ size = Vector3(100, 14, 100)
 size = Vector2(100, 100)
 
 [sub_resource type="Environment" id="Environment_ia1lp"]
+background_mode = 2
+sky = ExtResource("1_buypi")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 
@@ -245,6 +248,3 @@ shape = SubResource("CylinderShape3D_2nij2")
 
 [node name="DrivePath" parent="." unique_id=1548245820 node_paths=PackedStringArray("player_vehicle") instance=ExtResource("6_buypi")]
 player_vehicle = NodePath("../VehicleBody3D")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1858044562]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 19, 50)

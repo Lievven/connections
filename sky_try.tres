@@ -1,0 +1,52 @@
+[gd_resource type="Sky" format=3 uid="uid://xxak1xrpjds8"]
+
+[ext_resource type="Shader" uid="uid://dm6p6m0jqupvu" path="res://test_scene.gdshader" id="1_72uh5"]
+
+[sub_resource type="Gradient" id="Gradient_buypi"]
+offsets = PackedFloat32Array(0.45, 0.45, 1)
+colors = PackedColorArray(0.34901962, 0.25490198, 0.18039216, 1, 0.6952, 0.75988, 0.88, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kod4q"]
+gradient = SubResource("Gradient_buypi")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_72uh5"]
+offsets = PackedFloat32Array(0.5, 0.5)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vr1i5"]
+frequency = 0.007
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_woa5y"]
+width = 256
+height = 2048
+noise = SubResource("FastNoiseLite_vr1i5")
+color_ramp = SubResource("Gradient_72uh5")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="Gradient" id="Gradient_oo8pe"]
+colors = PackedColorArray(0.42, 0.42, 0.42, 1, 0.74, 0.74, 0.74, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pa7nf"]
+gradient = SubResource("Gradient_oo8pe")
+fill_from = Vector2(0.081196584, 1)
+
+[sub_resource type="Gradient" id="Gradient_fbuy2"]
+offsets = PackedFloat32Array(0, 0.45, 0.45, 1)
+colors = PackedColorArray(0.26, 0.19136001, 0.1352, 1, 0.41, 0.30176002, 0.21319999, 1, 0.25, 0.8875001, 1, 1, 0.2457001, 0.19440001, 0.81, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_weflg"]
+gradient = SubResource("Gradient_fbuy2")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_buypi"]
+shader = ExtResource("1_72uh5")
+shader_parameter/hdri_background = SubResource("GradientTexture2D_pa7nf")
+shader_parameter/sky_background = SubResource("GradientTexture2D_weflg")
+shader_parameter/clouds = SubResource("NoiseTexture2D_woa5y")
+shader_parameter/cloud_color = SubResource("GradientTexture2D_kod4q")
+shader_parameter/exposure = 1.0
+
+[resource]
+sky_material = SubResource("ShaderMaterial_buypi")
