@@ -14,7 +14,6 @@ func _ready() -> void:
 		return
 	linked_event = events[event_index]
 	text = linked_event.as_text().split("-")[0]
-	print(text)
 
 
 func relay_input(event: InputEvent) -> void:

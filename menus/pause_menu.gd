@@ -27,7 +27,7 @@ func switch_menu(new_menu: Menu):
 	menu_tween.bind_node(self)
 	menu_tween.set_trans(Tween.TRANS_CUBIC)
 	
-	var new_offset: Vector2 = Vector2(0, 0)
+	var new_offset: Vector2 = Vector2(10, 0)
 	
 	if new_menu == Menu.START:
 		new_offset -= start_menu_position
