@@ -18,6 +18,7 @@ var menu_tween: Tween
 
 func _ready() -> void:
 	connection_manager.win_run.connect(run_won)
+	$StartMenu/ContinueButton.grab_focus.call_deferred()
 
 
 func switch_menu(new_menu: Menu):
@@ -31,11 +32,15 @@ func switch_menu(new_menu: Menu):
 	
 	if new_menu == Menu.START:
 		new_offset -= start_menu_position
+		$StartMenu/ContinueButton.grab_focus.call_deferred()
 	elif new_menu == Menu.PAUSE:
 		new_offset -= pause_menu_position
+		$PauseMenu/ContinueButton.grab_focus.call_deferred()
 	elif new_menu == Menu.GAME_OVER:
 		new_offset -= game_over_menu_position
+		$GameOverMenu/ContinueButton.grab_focus.call_deferred()
 	elif new_menu == Menu.CONTROLS:
+		$ControlsMenu/PreviousMenu.grab_focus.call_deferred()
 		if current_menu == Menu.START:
 			new_offset -= start_menu_position
 		elif current_menu == Menu.PAUSE:
@@ -118,4 +123,11 @@ func switch_to_previous() -> void:
 
 func run_won() -> void:
 	switch_menu(Menu.GAME_OVER)
-	
+
+
+func _toggle_use_mouse(toggled_on: bool) -> void:
+	connection_manager.is_using_mouse = toggled_on
+
+
+func _toggle_inverted_steering(toggled_on: bool) -> void:
+	connection_manager.is_steering_inverted = toggled_on

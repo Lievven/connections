@@ -10,3 +10,5 @@ signal import_replay
 
 
 var is_menu_active = false
+var is_using_mouse = true
+var is_steering_inverted = false

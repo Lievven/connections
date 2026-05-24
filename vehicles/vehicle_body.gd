@@ -18,11 +18,21 @@ var backwards_mode = false
 
 
 func _process(delta: float) -> void:
-	var mouse_position = get_viewport().get_mouse_position().x
-	var screen_width = get_viewport().get_visible_rect().size.x
+	var steer_input: float = 0.5
 	
-	mouse_position = clampf(mouse_position, 0, screen_width)
-	var steer_input = mouse_position / screen_width
+	if connection_manager.is_using_mouse:
+		var mouse_position = get_viewport().get_mouse_position().x
+		var screen_width = get_viewport().get_visible_rect().size.x
+	
+		mouse_position = clampf(mouse_position, 0, screen_width)
+		steer_input = 1 - mouse_position / screen_width
+	else:
+		steer_input -= Input.get_action_strength("right") / 2
+		steer_input += Input.get_action_strength("left") / 2
+	
+	if connection_manager.is_steering_inverted:
+		steer_input = 1 - steer_input
+	
 	if not freeze:
 		steering = deg_to_rad(-max_steer + 2 * max_steer * steer_input)
 	
@@ -65,11 +75,3 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("brake"):
 		engine_force -= (motor_force * 1.5 - engine_force) * 2 / motor_decay / press_per_second
 		engine_force = clamp(engine_force, -motor_force, motor_force)
-	if event.is_action_pressed("ui_up"):
-		forwards_mode = true
-		engine_force = motor_force
-		timer = 3
-	if event.is_action_pressed("ui_down"):
-		backwards_mode = true
-		engine_force = -motor_force
-		timer = 3

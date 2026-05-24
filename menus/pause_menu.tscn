@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dl7on1flvjpxf"]
 
 [ext_resource type="Script" uid="uid://biocvt642osuq" path="res://menus/pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="Theme" uid="uid://d0d6qmbf7eqhl" path="res://menus/menu_main_label.tres" id="2_0wv6w"]
 [ext_resource type="PackedScene" uid="uid://b5om20vrcrl1n" path="res://menus/keybind_button.tscn" id="2_p1qj3"]
 
 [node name="PauseMenu" type="Control" unique_id=2089833742]
@@ -32,25 +33,48 @@ offset_right = 111.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Spacer" type="Control" parent="StartMenu" unique_id=481147658]
+[node name="Spacer1" type="Control" parent="StartMenu" unique_id=481147658]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="StartMenu" unique_id=479595648]
 layout_mode = 2
+theme = ExtResource("2_0wv6w")
 text = "Start Menu"
 horizontal_alignment = 1
 
+[node name="Spacer2" type="Control" parent="StartMenu" unique_id=924589103]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
 [node name="ContinueButton" type="Button" parent="StartMenu" unique_id=165339993]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../KeybindsButton")
+focus_next = NodePath("../KeybindsButton")
+focus_previous = NodePath("../LoadReplayButton")
 text = "Start Game"
 
 [node name="KeybindsButton" type="Button" parent="StartMenu" unique_id=1892188864]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../LoadReplayButton")
+focus_next = NodePath("../LoadReplayButton")
+focus_previous = NodePath("../ContinueButton")
 text = "Controls"
 
 [node name="LoadReplayButton" type="Button" parent="StartMenu" unique_id=1941005701]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../KeybindsButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../KeybindsButton")
 text = "Load Replay from Clipboard"
 
 [node name="ShowGhost" type="Button" parent="StartMenu" unique_id=1369026194]
@@ -58,7 +82,7 @@ visible = false
 layout_mode = 2
 text = "Ghost"
 
-[node name="Spacer2" type="Control" parent="StartMenu" unique_id=128737337]
+[node name="Spacer3" type="Control" parent="StartMenu" unique_id=128737337]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -74,32 +98,61 @@ offset_right = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Spacer" type="Control" parent="GameOverMenu" unique_id=1523447115]
+[node name="Spacer1" type="Control" parent="GameOverMenu" unique_id=1497937676]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="GameOverMenu" unique_id=1087718631]
 layout_mode = 2
+theme = ExtResource("2_0wv6w")
 text = "Game Over!"
 horizontal_alignment = 1
 
+[node name="Spacer2" type="Control" parent="GameOverMenu" unique_id=1211397422]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
 [node name="ContinueButton" type="Button" parent="GameOverMenu" unique_id=1497927984]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../ReplayButton")
+focus_next = NodePath("../ReplayButton")
+focus_previous = NodePath("../MainButton")
 text = "New Game"
 
 [node name="ReplayButton" type="Button" parent="GameOverMenu" unique_id=897945805]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../ExportButton")
+focus_next = NodePath("../ExportButton")
+focus_previous = NodePath("../ContinueButton")
 text = "View Replay"
 
 [node name="ExportButton" type="Button" parent="GameOverMenu" unique_id=1647242252]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ReplayButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../MainButton")
+focus_next = NodePath("../MainButton")
+focus_previous = NodePath("../ReplayButton")
 text = "Copy Replay to Clipboard"
 
 [node name="MainButton" type="Button" parent="GameOverMenu" unique_id=427967069]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ExportButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../ExportButton")
 text = "Main Menu"
 
-[node name="Spacer2" type="Control" parent="GameOverMenu" unique_id=1679827805]
+[node name="Spacer3" type="Control" parent="GameOverMenu" unique_id=1679827805]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -115,25 +168,48 @@ offset_right = 730.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Spacer" type="Control" parent="PauseMenu" unique_id=778378489]
+[node name="Spacer1" type="Control" parent="PauseMenu" unique_id=1675481784]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PauseMenu" unique_id=910979362]
 layout_mode = 2
-text = "Pause Menu"
+theme = ExtResource("2_0wv6w")
+text = "Pause"
 horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="PauseMenu" unique_id=335765806]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
 
 [node name="ContinueButton" type="Button" parent="PauseMenu" unique_id=1908960531]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../KeybindsButton")
+focus_next = NodePath("../KeybindsButton")
+focus_previous = NodePath("../SurrenderButton")
 text = "Continue"
 
 [node name="KeybindsButton" type="Button" parent="PauseMenu" unique_id=556934257]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SurrenderButton")
+focus_next = NodePath("../SurrenderButton")
+focus_previous = NodePath("../ContinueButton")
 text = "Controls"
 
 [node name="SurrenderButton" type="Button" parent="PauseMenu" unique_id=2040483540]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../KeybindsButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../KeybindsButton")
 text = "Give Up"
 
 [node name="ShowGhost" type="Button" parent="PauseMenu" unique_id=143726825]
@@ -141,7 +217,7 @@ visible = false
 layout_mode = 2
 text = "Ghost"
 
-[node name="Spacer2" type="Control" parent="PauseMenu" unique_id=344495834]
+[node name="Spacer3" type="Control" parent="PauseMenu" unique_id=344495834]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -159,14 +235,59 @@ offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Spacer" type="Control" parent="ControlsMenu" unique_id=901718261]
+[node name="Spacer1" type="Control" parent="ControlsMenu" unique_id=526547889]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="ControlsMenu" unique_id=1006071136]
 layout_mode = 2
+theme = ExtResource("2_0wv6w")
 text = "Controls"
 horizontal_alignment = 1
+
+[node name="GridContainer2" type="GridContainer" parent="ControlsMenu" unique_id=2067493936]
+layout_mode = 2
+columns = 2
+
+[node name="Spacer2" type="Control" parent="ControlsMenu/GridContainer2" unique_id=208155460]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+
+[node name="Spacer3" type="Control" parent="ControlsMenu/GridContainer2" unique_id=852812988]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label1" type="Label" parent="ControlsMenu/GridContainer2" unique_id=2009494779]
+layout_mode = 2
+text = "Use mouse to steer."
+
+[node name="Toggle1" type="Button" parent="ControlsMenu/GridContainer2" unique_id=924140383]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Toggle2")
+focus_next = NodePath("../Toggle2")
+focus_previous = NodePath("../../PreviousMenu")
+toggle_mode = true
+button_pressed = true
+
+[node name="Label2" type="Label" parent="ControlsMenu/GridContainer2" unique_id=379804521]
+layout_mode = 2
+text = "Inverted Steering"
+
+[node name="Toggle2" type="Button" parent="ControlsMenu/GridContainer2" unique_id=1086473401]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Toggle1")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../GridContainer/KeyButton2")
+focus_next = NodePath("../../GridContainer/KeyButton1")
+focus_previous = NodePath("../Toggle1")
+toggle_mode = true
 
 [node name="GridContainer" type="GridContainer" parent="ControlsMenu" unique_id=1689805182]
 layout_mode = 2
@@ -197,44 +318,140 @@ text = "Accelerate"
 
 [node name="KeyButton1" parent="ControlsMenu/GridContainer" unique_id=2127445497 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../GridContainer2/Toggle2")
+focus_neighbor_right = NodePath("../KeyButton2")
+focus_neighbor_bottom = NodePath("../KeyButton3")
+focus_next = NodePath("../KeyButton2")
+focus_previous = NodePath("../../GridContainer2/Toggle2")
 linked_action = "accelerate"
 
 [node name="KeyButton2" parent="ControlsMenu/GridContainer" unique_id=1031952461 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../KeyButton1")
+focus_neighbor_top = NodePath("../../GridContainer2/Toggle2")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../KeyButton4")
+focus_next = NodePath("../KeyButton3")
+focus_previous = NodePath("../KeyButton1")
 linked_action = "accelerate"
 event_index = 1
 
 [node name="Label2" type="Label" parent="ControlsMenu/GridContainer" unique_id=1031498147]
 layout_mode = 2
-text = "Brake"
+text = "Reverse"
 
 [node name="KeyButton3" parent="ControlsMenu/GridContainer" unique_id=1723945566 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../KeyButton1")
+focus_neighbor_right = NodePath("../KeyButton4")
+focus_neighbor_bottom = NodePath("../KeyButton5")
+focus_next = NodePath("../KeyButton4")
+focus_previous = NodePath("../KeyButton2")
 linked_action = "brake"
 
 [node name="KeyButton4" parent="ControlsMenu/GridContainer" unique_id=489177832 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../KeyButton3")
+focus_neighbor_top = NodePath("../KeyButton2")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../KeyButton6")
+focus_next = NodePath("../KeyButton5")
+focus_previous = NodePath("../KeyButton3")
 linked_action = "brake"
 event_index = 1
 
 [node name="Label3" type="Label" parent="ControlsMenu/GridContainer" unique_id=781927452]
 layout_mode = 2
-text = "Pause"
+text = "Left"
 
 [node name="KeyButton5" parent="ControlsMenu/GridContainer" unique_id=2026950708 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
-linked_action = "pause"
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../KeyButton3")
+focus_neighbor_right = NodePath("../KeyButton6")
+focus_neighbor_bottom = NodePath("../KeyButton7")
+focus_next = NodePath("../KeyButton6")
+focus_previous = NodePath("../KeyButton4")
+linked_action = "left"
 
 [node name="KeyButton6" parent="ControlsMenu/GridContainer" unique_id=1224522357 instance=ExtResource("2_p1qj3")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../KeyButton5")
+focus_neighbor_top = NodePath("../KeyButton4")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../KeyButton8")
+focus_next = NodePath("../KeyButton7")
+focus_previous = NodePath("../KeyButton5")
+linked_action = "left"
+event_index = 1
+
+[node name="Label4" type="Label" parent="ControlsMenu/GridContainer" unique_id=2129140273]
+layout_mode = 2
+text = "Right"
+
+[node name="KeyButton7" parent="ControlsMenu/GridContainer" unique_id=782107849 instance=ExtResource("2_p1qj3")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../KeyButton5")
+focus_neighbor_right = NodePath("../KeyButton8")
+focus_neighbor_bottom = NodePath("../KeyButton9")
+focus_next = NodePath("../KeyButton8")
+focus_previous = NodePath("../KeyButton6")
+linked_action = "right"
+
+[node name="KeyButton8" parent="ControlsMenu/GridContainer" unique_id=183949293 instance=ExtResource("2_p1qj3")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../KeyButton7")
+focus_neighbor_top = NodePath("../KeyButton6")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../KeyButton10")
+focus_next = NodePath("../KeyButton9")
+focus_previous = NodePath("../KeyButton7")
+linked_action = "right"
+event_index = 1
+
+[node name="Label5" type="Label" parent="ControlsMenu/GridContainer" unique_id=228457821]
+layout_mode = 2
+text = "Pause"
+
+[node name="KeyButton9" parent="ControlsMenu/GridContainer" unique_id=449516449 instance=ExtResource("2_p1qj3")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../KeyButton7")
+focus_neighbor_right = NodePath("../KeyButton10")
+focus_neighbor_bottom = NodePath("../../PreviousMenu")
+focus_next = NodePath("../KeyButton10")
+focus_previous = NodePath("../KeyButton8")
+linked_action = "pause"
+
+[node name="KeyButton10" parent="ControlsMenu/GridContainer" unique_id=1310602187 instance=ExtResource("2_p1qj3")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../KeyButton9")
+focus_neighbor_top = NodePath("../KeyButton8")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../PreviousMenu")
+focus_next = NodePath("../../PreviousMenu")
+focus_previous = NodePath("../KeyButton9")
 linked_action = "pause"
 event_index = 1
 
+[node name="Spacer4" type="Control" parent="ControlsMenu" unique_id=396395512]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
 [node name="PreviousMenu" type="Button" parent="ControlsMenu" unique_id=574156245]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../GridContainer/KeyButton9")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../GridContainer2/Toggle1")
+focus_previous = NodePath("../GridContainer/KeyButton10")
 text = "Return"
 
-[node name="Spacer2" type="Control" parent="ControlsMenu" unique_id=1778284387]
+[node name="Spacer3" type="Control" parent="ControlsMenu" unique_id=1778284387]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -248,4 +465,6 @@ size_flags_vertical = 3
 [connection signal="pressed" from="PauseMenu/ContinueButton" to="." method="_continue_game"]
 [connection signal="pressed" from="PauseMenu/KeybindsButton" to="." method="_switch_to_keybinds"]
 [connection signal="pressed" from="PauseMenu/SurrenderButton" to="." method="_surrender_run"]
+[connection signal="toggled" from="ControlsMenu/GridContainer2/Toggle1" to="." method="_toggle_use_mouse"]
+[connection signal="toggled" from="ControlsMenu/GridContainer2/Toggle2" to="." method="_toggle_inverted_steering"]
 [connection signal="pressed" from="ControlsMenu/PreviousMenu" to="." method="switch_to_previous"]

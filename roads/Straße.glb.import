@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b538eivx0j447"
-path="res://.godot/imported/Lenkrad.glb-bde96c65de281abd3e972b6327c3788e.scn"
+uid="uid://cp6cxvylss2ob"
+path="res://.godot/imported/Straße.glb-8560f1e36610b13d3c22dd0b87abf0e1.scn"
 
 [deps]
 
-source_file="res://vehicles/Lenkrad.glb"
-dest_files=["res://.godot/imported/Lenkrad.glb-bde96c65de281abd3e972b6327c3788e.scn"]
+source_file="res://roads/Straße.glb"
+dest_files=["res://.godot/imported/Straße.glb-8560f1e36610b13d3c22dd0b87abf0e1.scn"]
 
 [params]
 
