@@ -62,7 +62,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("accelerate"):
 		engine_force += (motor_force * 1.5 - engine_force) * 2 / motor_decay / press_per_second
 		engine_force = clamp(engine_force, -motor_force, motor_force)
-	if event.is_action_pressed("break"):
+	if event.is_action_pressed("brake"):
 		engine_force -= (motor_force * 1.5 - engine_force) * 2 / motor_decay / press_per_second
 		engine_force = clamp(engine_force, -motor_force, motor_force)
 	if event.is_action_pressed("ui_up"):
