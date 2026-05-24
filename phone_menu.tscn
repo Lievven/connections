@@ -7,7 +7,35 @@
 size = Vector3(0.3, 0.4, 0.01)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7cbxl"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="GDScript" id="GDScript_v4yfp"]
+script/source = "extends Sprite3D
+
+
+@onready var subviewport = $SubViewport
+
+func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if not event is InputEventMouse:
+		return
+	
+	var pos3D: Vector3 = event_position
+	pos3D = self.to_local(pos3D)
+	
+	var pos2D: Vector2 = Vector2(pos3D.x, pos3D.y)
+	pos2D /= pixel_size
+	pos2D.y *= -1
+	pos2D += subviewport.size / 2.0
+	event.position = pos2D
+	subviewport.push_input(event)
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	subviewport.push_input(event)
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4yfp"]
+size = Vector3(0.3, 0.4, 0.01)
 
 [node name="PhoneMenu" type="MeshInstance3D" unique_id=708378194]
 process_mode = 3
@@ -17,9 +45,20 @@ script = ExtResource("1_v4yfp")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=930313683]
 transform = Transform3D(-1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1, 0, 0, -0.0074954405)
 pixel_size = 0.001
+double_sided = false
 texture = SubResource("ViewportTexture_7cbxl")
+script = SubResource("GDScript_v4yfp")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=2113934400]
+[node name="Area3D" type="Area3D" parent="Sprite3D" unique_id=1106548229]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/Area3D" unique_id=787159560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.005)
+shape = SubResource("BoxShape3D_v4yfp")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=2113934400]
 size = Vector2i(300, 400)
 
-[node name="PauseMenu" parent="SubViewport" unique_id=2089833742 instance=ExtResource("1_xywsr")]
+[node name="PauseMenu" parent="Sprite3D/SubViewport" unique_id=2089833742 node_paths=PackedStringArray("phone_menu") instance=ExtResource("1_xywsr")]
+phone_menu = NodePath("../../..")
+
+[connection signal="input_event" from="Sprite3D/Area3D" to="Sprite3D" method="_on_input_event"]

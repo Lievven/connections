@@ -16,6 +16,10 @@ var drive_tween: Tween
 var replay_step: int = 0
 
 
+func _ready() -> void:
+	connection_manager.start_replay.connect(start_replay)
+
+
 func _process(delta: float) -> void:
 	if not is_recording:
 		return
@@ -71,20 +75,29 @@ func _input(event: InputEvent) -> void:
 
 func change_replay_mode():
 	if is_recording:
-		visible = true
-		is_recording = false
-		player_vehicle.freeze = true
-		follow_drive_path()
+		start_replay()
 	else:
-		visible = false
-		is_recording = true
-		player_vehicle.freeze = false
-		drive_tween.kill()
-		curve.clear_points()
-		angles.clear()
-		timestamps.clear()
-		steerings.clear()
-		last_timestamp = 0
-		replay_step = 0
-		
-		
+		end_replay()
+
+
+func start_replay():
+	visible = true
+	is_recording = false
+	player_vehicle.freeze = true
+	follow_drive_path()
+
+
+func end_replay():
+	if is_recording:
+		return
+	
+	visible = false
+	is_recording = true
+	player_vehicle.freeze = false
+	drive_tween.kill()
+	curve.clear_points()
+	angles.clear()
+	timestamps.clear()
+	steerings.clear()
+	last_timestamp = 0
+	replay_step = 0

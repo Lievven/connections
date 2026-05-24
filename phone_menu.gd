@@ -3,7 +3,7 @@ extends MeshInstance3D
 
 
 @export var inactive_target: Node3D
-@export var activation_duration: float = 0.3
+@export var activation_duration: float = 0.5
 
 var active_position: Vector3
 var active_basis: Basis
@@ -30,6 +30,8 @@ func deactivate_menu():
 	activation_tween = create_tween()
 	activation_tween.bind_node(self)
 	activation_tween.finished.connect(has_deactivated)
+	activation_tween.set_ease(Tween.EASE_IN_OUT)
+	activation_tween.set_trans(Tween.TRANS_CIRC)
 	
 	activation_tween.tween_property(self, "position", inactive_target.position, activation_duration)
 	activation_tween.parallel()
@@ -44,6 +46,8 @@ func activate_menu():
 		activation_tween.kill()
 	activation_tween = create_tween()
 	activation_tween.bind_node(self)
+	activation_tween.set_ease(Tween.EASE_IN_OUT)
+	activation_tween.set_trans(Tween.TRANS_CIRC)
 	
 	activation_tween.tween_property(self, "position", active_position, activation_duration)
 	activation_tween.parallel()

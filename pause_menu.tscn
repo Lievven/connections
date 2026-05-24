@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://dl7on1flvjpxf"]
 
+[ext_resource type="Script" uid="uid://biocvt642osuq" path="res://pause_menu.gd" id="1_hdmo1"]
+
 [node name="PauseMenu" type="Control" unique_id=2089833742]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_hdmo1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1651685150]
 layout_mode = 1
@@ -16,51 +19,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.05, 0.05, 0.05, 1)
 
-[node name="BreakMenu" type="VBoxContainer" parent="." unique_id=488058042]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Spacer" type="Control" parent="BreakMenu" unique_id=778378489]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="BreakMenu" unique_id=910979362]
-layout_mode = 2
-text = "Pause Menu"
-horizontal_alignment = 1
-
-[node name="ContinueButton" type="Button" parent="BreakMenu" unique_id=1908960531]
-layout_mode = 2
-text = "Continue"
-
-[node name="KeybindsButton" type="Button" parent="BreakMenu" unique_id=556934257]
-layout_mode = 2
-text = "Controls"
-
-[node name="SurrenderButton" type="Button" parent="BreakMenu" unique_id=2040483540]
-layout_mode = 2
-text = "Give Up"
-
-[node name="ShowGhost" type="Button" parent="BreakMenu" unique_id=143726825]
-visible = false
-layout_mode = 2
-text = "Ghost"
-
-[node name="Spacer2" type="Control" parent="BreakMenu" unique_id=344495834]
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="StartMenu" type="VBoxContainer" parent="." unique_id=1162966116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 300.0
-offset_right = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -99,8 +62,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 600.0
-offset_right = 600.0
+offset_left = 300.0
+offset_right = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -133,13 +96,53 @@ text = "Main Menu"
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="PauseMenu" type="VBoxContainer" parent="." unique_id=488058042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_right = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="PauseMenu" unique_id=778378489]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PauseMenu" unique_id=910979362]
+layout_mode = 2
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="PauseMenu" unique_id=1908960531]
+layout_mode = 2
+text = "Continue"
+
+[node name="KeybindsButton" type="Button" parent="PauseMenu" unique_id=556934257]
+layout_mode = 2
+text = "Controls"
+
+[node name="SurrenderButton" type="Button" parent="PauseMenu" unique_id=2040483540]
+layout_mode = 2
+text = "Give Up"
+
+[node name="ShowGhost" type="Button" parent="PauseMenu" unique_id=143726825]
+visible = false
+layout_mode = 2
+text = "Ghost"
+
+[node name="Spacer2" type="Control" parent="PauseMenu" unique_id=344495834]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="ControlsMenu" type="VBoxContainer" parent="." unique_id=1618708950]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 900.0
-offset_right = 900.0
+offset_top = 400.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -200,6 +203,22 @@ layout_mode = 2
 [node name="Button6" type="Button" parent="ControlsMenu/GridContainer" unique_id=1386891069]
 layout_mode = 2
 
+[node name="PreviousMenu" type="Button" parent="ControlsMenu" unique_id=574156245]
+layout_mode = 2
+text = "Return"
+
 [node name="Spacer2" type="Control" parent="ControlsMenu" unique_id=1778284387]
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="pressed" from="StartMenu/ContinueButton" to="." method="_start_new_game"]
+[connection signal="pressed" from="StartMenu/KeybindsButton" to="." method="_switch_to_keybinds"]
+[connection signal="pressed" from="StartMenu/LoadReplayButton" to="." method="_load_replay"]
+[connection signal="pressed" from="GameOverMenu/ContinueButton" to="." method="_start_new_game"]
+[connection signal="pressed" from="GameOverMenu/ReplayButton" to="." method="_start_replay"]
+[connection signal="pressed" from="GameOverMenu/ExportButton" to="." method="_copy_replay"]
+[connection signal="pressed" from="GameOverMenu/MainButton" to="." method="_return_to_main_menu"]
+[connection signal="pressed" from="PauseMenu/ContinueButton" to="." method="_continue_game"]
+[connection signal="pressed" from="PauseMenu/KeybindsButton" to="." method="_switch_to_keybinds"]
+[connection signal="pressed" from="PauseMenu/SurrenderButton" to="." method="_surrender_run"]
+[connection signal="pressed" from="ControlsMenu/PreviousMenu" to="." method="switch_to_previous"]
