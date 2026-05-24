@@ -32,4 +32,4 @@ func _on_body_entered(body: Node3D) -> void:
 		queue_free()
 		return
 	
-	print("WE HAVE A WINNER")
+	connection_manager.win_run.emit()

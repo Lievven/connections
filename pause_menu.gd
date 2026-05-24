@@ -16,6 +16,10 @@ enum Menu {START, PAUSE, GAME_OVER, CONTROLS}
 var menu_tween: Tween
 
 
+func _ready() -> void:
+	connection_manager.win_run.connect(run_won)
+
+
 func switch_menu(new_menu: Menu):
 	if menu_tween:
 		menu_tween.kill()
@@ -57,44 +61,65 @@ func _input(event: InputEvent) -> void:
 
 
 func _continue_game() -> void:
+	if not connection_manager.is_menu_active:
+		return
 	phone_menu.deactivate_menu()
 
 
 func _switch_to_keybinds() -> void:
-	print("SWITCH TO KEYBINDS")
+	if not connection_manager.is_menu_active:
+		return
 	switch_menu(Menu.CONTROLS)
 
 
 func _surrender_run() -> void:
-	print("SURRENDER RUN")
+	if not connection_manager.is_menu_active:
+		return
 	switch_menu(Menu.GAME_OVER)
 	connection_manager.surrender_run.emit()
 
 
 func _start_new_game() -> void:
-	print("START NEW GAME")
+	if not connection_manager.is_menu_active:
+		return
+	phone_menu.deactivate_menu()
 	switch_menu(Menu.PAUSE)
+	connection_manager.start_new_run.emit()
 
 
 func _load_replay() -> void:
-	print("LOAD REPLAY")
+	if not connection_manager.is_menu_active:
+		return
+	# TODO: implement loading replay
+	connection_manager.start_replay.emit()
+	phone_menu.deactivate_menu()
 
 
 func _start_replay() -> void:
-	print("START REPLAY")
+	if not connection_manager.is_menu_active:
+		return
 	connection_manager.start_replay.emit()
 	phone_menu.deactivate_menu()
 
 
 func _copy_replay() -> void:
+	if not connection_manager.is_menu_active:
+		return
 	print("COPY REPLAY")
 
 
 func _return_to_main_menu() -> void:
-	print("RETURN TO MAIN MENU")
+	if not connection_manager.is_menu_active:
+		return
 	switch_menu(Menu.START)
 
 
 func switch_to_previous() -> void:
-	print("SWITCH TO PREVIOUS MENU")
+	if not connection_manager.is_menu_active:
+		return
 	switch_menu(previous_menu)
+
+
+func run_won() -> void:
+	switch_menu(Menu.GAME_OVER)
+	

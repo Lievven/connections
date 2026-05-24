@@ -14,7 +14,8 @@ var activation_tween: Tween
 func _ready() -> void:
 	active_position = position
 	active_basis = basis
-
+	activate_menu()
+	connection_manager.win_run.connect(activate_menu)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -25,6 +26,8 @@ func _input(event: InputEvent) -> void:
 
 
 func deactivate_menu():
+	connection_manager.is_menu_active = false
+	
 	if activation_tween:
 		activation_tween.kill()
 	activation_tween = create_tween()
@@ -46,6 +49,7 @@ func activate_menu():
 		activation_tween.kill()
 	activation_tween = create_tween()
 	activation_tween.bind_node(self)
+	activation_tween.finished.connect(has_activated)
 	activation_tween.set_ease(Tween.EASE_IN_OUT)
 	activation_tween.set_trans(Tween.TRANS_CIRC)
 	
@@ -53,6 +57,10 @@ func activate_menu():
 	activation_tween.parallel()
 	activation_tween.tween_property(self, "basis", active_basis, activation_duration)
 
+
+func has_activated():
+	connection_manager.is_menu_active = true
+	
 
 func has_deactivated():
 	visible = false
