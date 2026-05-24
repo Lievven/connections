@@ -1,22 +1,205 @@
 [gd_scene format=3 uid="uid://dl7on1flvjpxf"]
 
-[node name="Control" type="Control" unique_id=2089833742]
+[node name="PauseMenu" type="Control" unique_id=2089833742]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="." unique_id=910979362]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Happy Wheels!"
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1651685150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.05, 1)
 
-[node name="Button" type="Button" parent="." unique_id=1908960531]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 48.0
-offset_right = 266.0
-offset_bottom = 200.0
-text = "Hello World"
+[node name="BreakMenu" type="VBoxContainer" parent="." unique_id=488058042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="BreakMenu" unique_id=778378489]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="BreakMenu" unique_id=910979362]
+layout_mode = 2
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="BreakMenu" unique_id=1908960531]
+layout_mode = 2
+text = "Continue"
+
+[node name="KeybindsButton" type="Button" parent="BreakMenu" unique_id=556934257]
+layout_mode = 2
+text = "Controls"
+
+[node name="SurrenderButton" type="Button" parent="BreakMenu" unique_id=2040483540]
+layout_mode = 2
+text = "Give Up"
+
+[node name="ShowGhost" type="Button" parent="BreakMenu" unique_id=143726825]
+visible = false
+layout_mode = 2
+text = "Ghost"
+
+[node name="Spacer2" type="Control" parent="BreakMenu" unique_id=344495834]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartMenu" type="VBoxContainer" parent="." unique_id=1162966116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="StartMenu" unique_id=481147658]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="StartMenu" unique_id=479595648]
+layout_mode = 2
+text = "Start Menu"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="StartMenu" unique_id=165339993]
+layout_mode = 2
+text = "Start Game"
+
+[node name="KeybindsButton" type="Button" parent="StartMenu" unique_id=1892188864]
+layout_mode = 2
+text = "Controls"
+
+[node name="LoadReplayButton" type="Button" parent="StartMenu" unique_id=1941005701]
+layout_mode = 2
+text = "Load Replay from Clipboard"
+
+[node name="ShowGhost" type="Button" parent="StartMenu" unique_id=1369026194]
+visible = false
+layout_mode = 2
+text = "Ghost"
+
+[node name="Spacer2" type="Control" parent="StartMenu" unique_id=128737337]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GameOverMenu" type="VBoxContainer" parent="." unique_id=2014536761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_right = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="GameOverMenu" unique_id=1523447115]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GameOverMenu" unique_id=1087718631]
+layout_mode = 2
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="GameOverMenu" unique_id=1497927984]
+layout_mode = 2
+text = "New Game"
+
+[node name="ReplayButton" type="Button" parent="GameOverMenu" unique_id=897945805]
+layout_mode = 2
+text = "View Replay"
+
+[node name="ExportButton" type="Button" parent="GameOverMenu" unique_id=1647242252]
+layout_mode = 2
+text = "Copy Replay to Clipboard"
+
+[node name="MainButton" type="Button" parent="GameOverMenu" unique_id=427967069]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Spacer2" type="Control" parent="GameOverMenu" unique_id=1679827805]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ControlsMenu" type="VBoxContainer" parent="." unique_id=1618708950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 900.0
+offset_right = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="ControlsMenu" unique_id=901718261]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ControlsMenu" unique_id=1006071136]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="ControlsMenu" unique_id=1689805182]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+columns = 3
+
+[node name="Header" type="Label" parent="ControlsMenu/GridContainer" unique_id=1046227769]
+layout_mode = 2
+text = "Action"
+
+[node name="Header2" type="Label" parent="ControlsMenu/GridContainer" unique_id=2032115158]
+layout_mode = 2
+text = "Button 1"
+
+[node name="Header3" type="Label" parent="ControlsMenu/GridContainer" unique_id=1957848954]
+layout_mode = 2
+text = "Button 2"
+
+[node name="Label" type="Label" parent="ControlsMenu/GridContainer" unique_id=1631972786]
+layout_mode = 2
+text = "Accelerate"
+
+[node name="Button" type="Button" parent="ControlsMenu/GridContainer" unique_id=1710040391]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="ControlsMenu/GridContainer" unique_id=1695748387]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ControlsMenu/GridContainer" unique_id=1031498147]
+layout_mode = 2
+text = "Brake"
+
+[node name="Button4" type="Button" parent="ControlsMenu/GridContainer" unique_id=1737211315]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="ControlsMenu/GridContainer" unique_id=1627082976]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ControlsMenu/GridContainer" unique_id=781927452]
+layout_mode = 2
+text = "Pause"
+
+[node name="Button5" type="Button" parent="ControlsMenu/GridContainer" unique_id=1257198478]
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="ControlsMenu/GridContainer" unique_id=1386891069]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="ControlsMenu" unique_id=1778284387]
+layout_mode = 2
+size_flags_vertical = 3
