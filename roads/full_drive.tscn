@@ -29,7 +29,11 @@ radius = 5.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_nnkje"]
 height = 20.0
-radius = 10.0
+radius = 80.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c75lj"]
+height = 20.0
+radius = 60.0
 
 [sub_resource type="Curve3D" id="Curve3D_nnkje"]
 _data = {
@@ -150,6 +154,97 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="Curve3D" id="Curve3D_rk147"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21.309692, 0.5583191, 62.672607),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_anjnj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -21.065125, 0.5583191, 92.620605),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_t3i2c"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 168.08832, 0.5583191, 514.50146),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ul5o3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -46.907, 0, 77.8, 0, 0, 0, 0, 0, 0, -103.992, 0, 149.586, 0, 0, 0, 0, 0, 0, -162.29568, 0, 204.15234, 0, 0, 0, 0, 0, 0, -235.24023, 0, 262.2085, 0, 0, 0, 0, 0, 0, -302.2796, 0, 306.8357),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_kup18"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -43.093018, 0, 77.39221),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_evbh7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -60.217407, -0.1906128, 95.48242, 15.241699, 0.2633667, -13.001953, -15.241699, -0.2633667, 13.001953, -115.07849, 4.414734, 153.33008, 0, 0, 0, 0, 0, 0, -186.16956, 0.92559814, 198.04321),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_i8a55"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -89.9303, 6.9768677, 15.930298),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_jywvh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -109.15588, 0, -33.2594, 0, 0, 0, 0, 0, 0, -151.45203, 18.283142, -48.301758, 0, 0, 0, 0, 0, 0, -185.15637, 49.850525, -76.33423, 0, 0, 0, 0, 0, 0, -218.58923, 78.90506, -125.06287, -3.0827637, -0.009399414, 38.49646, 3.0827637, 0.009399414, -38.49646, -233.82507, 106.594604, -214.14331, 0, 0, 0, 0, 0, 0, -223.3081, 113.26593, -293.49304, 0, 0, 0, 0, 0, 0, -207.83545, 111.8949, -348.6908, 0, 0, 0, 0, 0, 0, -185.29724, 89.780426, -408.8855, 0, 0, 0, 0, 0, 0, -171.64404, 68.08191, -470.09668, 11.7771, 2.2519531, 16.771606, -11.7771, -2.2519531, -16.771606, -178.34338, 60.084686, -506.3175, 0, 0, 0, 0, 0, 0, -226.85754, 59.776215, -550.682),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
+
+[sub_resource type="Curve3D" id="Curve3D_el1yd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 42.55487, 40.018295, 66.25659, -0.9361572, -3.143509, -29.948364, 0.9361572, 3.143509, 29.948364, 73.77667, 94.861465, 151.73816, 33.604034, 0.018806458, -82.295044, -33.604034, -0.018806458, 82.295044, 22.991486, 95.415665, 310.2599),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_iu7nn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -113.24744, -3.2542877, -97.19324, 113.24744, 3.2542877, 97.19324, 122.2681, -0.10916901, 214.41211, 0, 0, 0, 0, 0, 0, 379.7226, -0.23313141, 369.61414),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_u2xw7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 9.018799, -0.78279114, -18.644104, -9.018799, 0.78279114, 18.644104, -229.53864, 0.6649704, 614.1909),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_t3vpa"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 116.862854, -1.5468445, -30.161621, -116.862854, 1.5468445, 30.161621, -316.2028, 0.15078735, -1.6797485, 49.057648, 11.548271, -31.067383, -49.057648, -11.548271, 31.067383, -532.5133, 0.6649704, 91.47931),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_vbd4f"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 9.018799, -0.78279114, -18.644104, -9.018799, 0.78279114, 18.644104, -33.67224, 0.6649704, 87.21289, -6.7369385, -5.503647, -33.035156, 6.7369385, 5.503647, 33.035156, -59.629974, 25.894096, 170.69958, 0, 0, 0, 0, 0, 0, -26.748657, 37.815723, 217.18259, -51.035355, -28.839203, -26.389069, 51.035355, 28.839203, 26.389069, 82.655334, 104.40971, 273.96674, -21.289276, -2.6467285, -20.971802, 21.289276, 2.6467285, 20.971802, 161.23239, 153.95465, 327.4846, -8.716003, 32.409912, -56.480225, 8.716003, -32.409912, 56.480225, 242.94931, 136.95877, 459.14975, -8.562653, -0.5504074, -28.213806, 8.562653, 0.5504074, 28.213806, 257.09634, 99.2909, 568.9005, 0, 0, 0, 0, 0, 0, 330.0185, 101.8562, 698.80774),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_nnkje"]
 size = Vector3(40, 40, 85.64465)
 
@@ -245,11 +340,20 @@ shape = SubResource("CylinderShape3D_nnkje")
 
 [node name="BikeSpawner2" parent="Bikes" unique_id=1062952202 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 677.95306, -99.71036, -742.812)
-entry_path = NodePath("../RightLanes/Tankstelle/ChoicePath4")
+entry_path = NodePath("../RightLanes/Tankstelle/ChoicePath4r")
 min_cooldown = 1.0
 max_cooldown = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner2" unique_id=1746011286]
+shape = SubResource("CylinderShape3D_gi0ld")
+
+[node name="BikeSpawner9" parent="Bikes" unique_id=612730429 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 599.6529, -99.71036, -669.29584)
+entry_path = NodePath("../LeftLanes/Tankstelle/Tankstelle4")
+min_cooldown = 1.0
+max_cooldown = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner9" unique_id=98869647]
 shape = SubResource("CylinderShape3D_gi0ld")
 
 [node name="BikeSpawner3" parent="Bikes" unique_id=57045050 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
@@ -270,6 +374,42 @@ max_cooldown = 5.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner4" unique_id=724716344]
 shape = SubResource("CylinderShape3D_gi0ld")
 
+[node name="BikeSpawner7" parent="Bikes" unique_id=547218082 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 336.68506, -273.5224, -2340.269)
+entry_path = NodePath("../LeftLanes/Kreuzung/ChoicePath5")
+min_cooldown = 1.0
+max_cooldown = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner7" unique_id=925132031]
+shape = SubResource("CylinderShape3D_gi0ld")
+
+[node name="BikeSpawner8" parent="Bikes" unique_id=411755560 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 927.5743, -273.5224, -2214.4805)
+entry_path = NodePath("../LeftLanes/Hiill")
+min_cooldown = 1.0
+max_cooldown = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner8" unique_id=224308683]
+shape = SubResource("CylinderShape3D_c75lj")
+
+[node name="BikeSpawner6" parent="Bikes" unique_id=775219183 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 668.89734, -273.5224, -3016.2378)
+entry_path = NodePath("../LeftLanes/Kreuzung")
+min_cooldown = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner6" unique_id=1802651234]
+shape = SubResource("CylinderShape3D_gi0ld")
+
+[node name="BikeSpawner10" parent="Bikes/BikeSpawner6" unique_id=1066722415 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -675.771, 178.15845, 2197.4304)
+entry_path = NodePath("../../LeftLanes/Tankstelle/Tankstelle3")
+min_cooldown = 0.1
+max_cooldown = 2.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner6/BikeSpawner10" unique_id=563706767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1206703, -0.75292206, 1.9477844)
+shape = SubResource("CylinderShape3D_nnkje")
+
 [node name="RightLanes" parent="Bikes" unique_id=747330257 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.102646, 1.2229462, -56.303333)
 curve = SubResource("Curve3D_nnkje")
@@ -288,7 +428,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.939682, 5.244751, -54.5664
 curve = SubResource("Curve3D_c75lj")
 connections = [NodePath("../../Hill")]
 
-[node name="ChoicePath4" parent="Bikes/RightLanes/Tankstelle" unique_id=1320627450 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+[node name="ChoicePath4r" parent="Bikes/RightLanes/Tankstelle" unique_id=1320627450 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 636.6193, -2.0930176, 55.89386)
 curve = SubResource("Curve3D_n488r")
 connections = [NodePath("../../Hill")]
@@ -350,9 +490,76 @@ curve = SubResource("Curve3D_e3xtb")
 traffic_light = NodePath("../../../../../TrafficLights/TrafficLight4")
 connections = [NodePath("../../ChoicePath3")]
 
-[node name="LefftLanes" parent="Bikes" unique_id=1970935430 instance=ExtResource("11_gi0ld")]
+[node name="LeftLanes" parent="Bikes" unique_id=1970935430 instance=ExtResource("11_gi0ld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2667.6433, -301.21088, -2733.5571)
 curve = SubResource("Curve3D_aeret")
+
+[node name="Kreuzung" parent="Bikes/LeftLanes" unique_id=1292085520 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1997.5549, 26.553467, -276.0027)
+curve = SubResource("Curve3D_rk147")
+connections = [NodePath("ChoicePath2"), NodePath("ChoicePath4"), NodePath("ChoicePath4"), NodePath("ChoicePath4")]
+
+[node name="ChoicePath2" parent="Bikes/LeftLanes/Kreuzung" unique_id=25701965 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.094727, 0, 121.44946)
+curve = SubResource("Curve3D_anjnj")
+connections = [NodePath("../ChoicePath3")]
+max_bikes = 4
+
+[node name="ChoicePath4" parent="Bikes/LeftLanes/Kreuzung" unique_id=171971168 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.649597, 0, 172.01685)
+curve = SubResource("Curve3D_t3i2c")
+connections = [NodePath("../../Hiill")]
+max_bikes = 4
+
+[node name="ChoicePath3" parent="Bikes/LeftLanes/Kreuzung" unique_id=49950468 node_paths=PackedStringArray("traffic_light") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.458313, 0, 260.77588)
+curve = SubResource("Curve3D_ul5o3")
+traffic_light = NodePath("../../../../TrafficLights/TrafficLight4")
+
+[node name="ChoicePath5" parent="Bikes/LeftLanes/Kreuzung" unique_id=2043037103 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(-0.73740697, 0, 0.6754487, 0, 1, 0, -0.6754487, 0, -0.73740697, -318.01794, 0, 668.3157)
+curve = SubResource("Curve3D_kup18")
+connections = [NodePath("../ChoicePath6")]
+
+[node name="ChoicePath6" parent="Bikes/LeftLanes/Kreuzung" unique_id=2100869835 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(-0.5712723, 0, 0.8207606, 0, 1, 0, -0.8207606, 0, -0.5712723, -136.67212, 0, 630.92163)
+curve = SubResource("Curve3D_evbh7")
+connections = [NodePath("../ChoicePath7")]
+
+[node name="ChoicePath7" parent="Bikes/LeftLanes/Kreuzung" unique_id=1081054283 node_paths=PackedStringArray("traffic_light", "connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(-0.5712723, 0, 0.8207606, 0, 1, 0, -0.8207606, 0, -0.5712723, 171.39697, 0, 692.52026)
+curve = SubResource("Curve3D_i8a55")
+traffic_light = NodePath("../../../../TrafficLights/TrafficLight2")
+connections = [NodePath("../../Hiill")]
+
+[node name="Hiill" parent="Bikes/LeftLanes" unique_id=2128846410 node_paths=PackedStringArray("traffic_light", "connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(-0.5712723, 0, 0.8207606, 0, 1, 0, -0.8207606, 0, -0.5712723, -1733.926, 26.553467, 536.77026)
+curve = SubResource("Curve3D_jywvh")
+traffic_light = NodePath("../../../TrafficLights/TrafficLight2")
+connections = [NodePath("ChoicePath")]
+
+[node name="ChoicePath" parent="Bikes/LeftLanes/Hiill" unique_id=716525156 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(-0.86051095, 0, -0.509432, 0, 1, 0, 0.509432, 0, -0.86051095, -287.61975, 79.13823, -584.8827)
+curve = SubResource("Curve3D_el1yd")
+connections = [NodePath("../../Tankstelle"), NodePath("../../Tankstelle/Tankstelle2"), NodePath("../../Tankstelle/Tankstelle2"), NodePath("../../Tankstelle/Tankstelle2")]
+
+[node name="Tankstelle" parent="Bikes/LeftLanes" unique_id=841358335 instance=ExtResource("11_gi0ld")]
+transform = Transform3D(0.9097078, 0, -0.41524908, 0, 1, 0, 0.41524908, 0, 0.9097078, -2205.4153, 202.26456, 1504.2676)
+curve = SubResource("Curve3D_iu7nn")
+
+[node name="Tankstelle2" parent="Bikes/LeftLanes/Tankstelle" unique_id=1582726104 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.645538, 0, -74.63135)
+curve = SubResource("Curve3D_u2xw7")
+connections = [NodePath("../Tankstelle3")]
+
+[node name="Tankstelle4" parent="Bikes/LeftLanes/Tankstelle" unique_id=1262036664 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.19104, 0, 446.1515)
+curve = SubResource("Curve3D_t3vpa")
+connections = [NodePath("../Tankstelle3")]
+
+[node name="Tankstelle3" parent="Bikes/LeftLanes/Tankstelle" unique_id=109934400 instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -274.73373, 0, 621.64923)
+curve = SubResource("Curve3D_vbd4f")
 
 [node name="TrafficLights" type="Node3D" parent="." unique_id=412529216]
 

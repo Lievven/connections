@@ -17,15 +17,18 @@ var forwards_mode = false
 var backwards_mode = false
 
 
-@onready var start_position = global_position
+@onready var start_transform: Transform3D
 
 
 func _ready() -> void:
+	start_transform = global_transform
 	connection_manager.start_new_run.connect(reset_position)
 
 
 func reset_position():
-	global_position = start_position
+	angular_velocity = Vector3(0, 0, 0)
+	linear_velocity = Vector3(0, 0, 0)
+	global_transform = start_transform
 
 
 func _process(delta: float) -> void:

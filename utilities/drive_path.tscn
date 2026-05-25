@@ -4,6 +4,9 @@
 
 [sub_resource type="Curve3D" id="Curve3D_8nmjh"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ikk"]
+albedo_color = Color(0.2553786, 0.745835, 0.44244197, 1)
+
 [node name="DrivePath" type="Path3D" unique_id=1548245820]
 visible = false
 curve = SubResource("Curve3D_8nmjh")
@@ -23,3 +26,4 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
+material = SubResource("StandardMaterial3D_t4ikk")
