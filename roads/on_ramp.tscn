@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ce2wfgxc0hpit"]
+
+[ext_resource type="PackedScene" uid="uid://cw2qxc4flqaed" path="res://roads/road_path.tscn" id="1_ygy61"]
+
+[sub_resource type="Curve3D" id="Curve3D_ygy61"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 198.10623, -0.39694214, -0.68522644, 0, 0, 0, 0, 0, 0, 398.5158, 12.089973, 23.836731, 0, 0, 0, 0, 0, 0, 548.3273, 61.971024, 61.420944),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_4e6h3"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(83.68, 1.8199999, 13.95, -83.68, -1.8199999, -13.95, 0, 0, 0, 3.4499998, -17.33, 71.39, -3.4499998, 17.33, -71.39, -111.80001, 35.299995, -152.4, -67.93, -1.86, 14.74, 67.93, 1.86, -14.74, 45.6, 81.5, -300.7, -59, -2.5, 9.400001, 59, 2.5, -9.400001, 269.90002, 96.2, -327.00003),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dshu"]
+albedo_color = Color(0.39, 0.39, 0.39, 1)
+
+[node name="OnRamp" type="Node3D" unique_id=2037281710]
+
+[node name="RoadPath" parent="." unique_id=530021671 instance=ExtResource("1_ygy61")]
+curve = SubResource("Curve3D_ygy61")
+
+[node name="RoadPath2" parent="." unique_id=1116793664 instance=ExtResource("1_ygy61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4, -87.5, 364.2)
+curve = SubResource("Curve3D_4e6h3")
+
+[node name="CSGPolygon3D" parent="RoadPath2" index="0" unique_id=1190970547]
+polygon = PackedVector2Array(-40, 0, -40, -2, 0, -2, 0, 0)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="RoadPath2" unique_id=1189754310]
+use_collision = true
+polygon = PackedVector2Array(0, 1, 0, -2, 15, -2, 15, 1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_8dshu")
+
+[editable path="RoadPath2"]

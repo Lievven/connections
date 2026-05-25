@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bks1mn1377ecv"]
+
+[ext_resource type="Material" uid="uid://cbnxqeyd683" path="res://roads/street_material.tres" id="1_y52lm"]
+[ext_resource type="Material" uid="uid://da6fj535rg017" path="res://roads/sidewalk_material.tres" id="2_xag7u"]
+[ext_resource type="Material" uid="uid://cs6qokkfvpgd5" path="res://roads/curb_material.tres" id="3_ob2sx"]
+
+[sub_resource type="Curve3D" id="Curve3D_gqe0m"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -80, 0, 0, 0, 30.21, 9.46, 26.71, -30.21, -9.46, -26.71, -197.90001, -29, -177, -16.869999, -1.27, 18.17, 16.869999, 1.27, -18.17, -213, -44.600002, -247.90001, -30.789999, 6.02, -10.5, 30.789999, -6.02, 10.5, -150, -62.600002, -266, -45.539997, 14.889999, -22.99, 45.539997, -14.889999, 22.99, 60.65888, -110.44942, -139.71646, -28.81, 16.97, 9.24, 28.81, -16.97, -9.24, 144.7, -125.1, -127.8, 3.3999999, 1.0699999, 41.57, -3.3999999, -1.0699999, -41.57, 196.1, -126.8, -197, 77.53, 52.87, -3.1299999, -77.53, -52.87, 3.1299999, 105.188705, -157.92374, -291.0199, 29.429998, -77.61, 201.51, -29.429998, 77.61, -201.51, -215.7, -280.80002, -520.8, -50, 0, -50, 52.8, -0.1, -24.4, 16, -300, -720),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[node name="Hill2" type="Node3D" unique_id=1178305201]
+
+[node name="Path3D" type="Path3D" parent="." unique_id=866342828]
+curve = SubResource("Curve3D_gqe0m")
+
+[node name="Sidewalk" type="CSGPolygon3D" parent="Path3D" unique_id=1714352460]
+use_collision = true
+polygon = PackedVector2Array(0, 1, 0, -2, 20, -2, 20, 1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("2_xag7u")
+
+[node name="Curb" type="CSGPolygon3D" parent="Path3D" unique_id=1010596921]
+use_collision = true
+polygon = PackedVector2Array(0, 1.5, -1, -2, 2, -2, 1, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_ob2sx")
+
+[node name="Curb2" type="CSGPolygon3D" parent="Path3D" unique_id=1772171967]
+use_collision = true
+polygon = PackedVector2Array(21, 1.5, 22, -2, 19, -2, 20, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_ob2sx")
+
+[node name="Street" type="CSGPolygon3D" parent="Path3D" unique_id=1064187560]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, -2, -40, -2, -40, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("1_y52lm")
+
+[node name="Exit" type="Marker3D" parent="." unique_id=1476844140]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 16, -300, -720)
+gizmo_extents = 5.0

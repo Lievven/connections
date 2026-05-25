@@ -17,6 +17,17 @@ var forwards_mode = false
 var backwards_mode = false
 
 
+@onready var start_position = global_position
+
+
+func _ready() -> void:
+	connection_manager.start_new_run.connect(reset_position)
+
+
+func reset_position():
+	global_position = start_position
+
+
 func _process(delta: float) -> void:
 	var steer_input: float = 0.5
 	

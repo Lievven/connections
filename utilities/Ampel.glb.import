@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b538eivx0j447"
-path="res://.godot/imported/lenkrad.glb-c9405ec2f009134316f252d23e07ed18.scn"
+uid="uid://fhr02j8oyp4m"
+path="res://.godot/imported/Ampel.glb-f4c4937ae99a090e7bf134c9e0344f0c.scn"
 
 [deps]
 
-source_file="res://vehicles/lenkrad.glb"
-dest_files=["res://.godot/imported/lenkrad.glb-c9405ec2f009134316f252d23e07ed18.scn"]
+source_file="res://utilities/Ampel.glb"
+dest_files=["res://.godot/imported/Ampel.glb-f4c4937ae99a090e7bf134c9e0344f0c.scn"]
 
 [params]
 

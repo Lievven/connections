@@ -4,13 +4,12 @@ extends Node3D
 
 var changing_volume: bool = false
 var volume: float = 1
-var current_time: float = 0
 
 
 
 func _process(delta: float) -> void:
-	current_time += delta
-	var seconds = current_time
+	connection_manager.game_timer += delta
+	var seconds = connection_manager.game_timer
 	var minutes = floori(seconds / 60)
 	var centis = floori(seconds * 100)
 	seconds = floori(seconds)

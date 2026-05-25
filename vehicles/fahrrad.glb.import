@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://fhr02j8oyp4m"
-path="res://.godot/imported/Ampel.glb-cce7aeab93a87474618563e25bef7416.scn"
+uid="uid://1cisav5mrr74"
+path="res://.godot/imported/fahrrad.glb-57289809ba2a38302918f376ad66d8fe.scn"
 
 [deps]
 
-source_file="res://clutter/Ampel.glb"
-dest_files=["res://.godot/imported/Ampel.glb-cce7aeab93a87474618563e25bef7416.scn"]
+source_file="res://vehicles/fahrrad.glb"
+dest_files=["res://.godot/imported/fahrrad.glb-57289809ba2a38302918f376ad66d8fe.scn"]
 
 [params]
 

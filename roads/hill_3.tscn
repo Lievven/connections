@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://bek3qq62a8qgm"]
+
+[ext_resource type="Material" uid="uid://cbnxqeyd683" path="res://roads/street_material.tres" id="1_ke84l"]
+[ext_resource type="Material" uid="uid://da6fj535rg017" path="res://roads/sidewalk_material.tres" id="2_wdhw6"]
+[ext_resource type="Material" uid="uid://cs6qokkfvpgd5" path="res://roads/curb_material.tres" id="3_8glq0"]
+
+[sub_resource type="Curve3D" id="Curve3D_vbxqw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -80, 0, 0, 0, 30, 10, 26, -30.21, -9.46, -26.71, -150, -100, -180),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_8glq0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 15, 39),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_wdhw6"]
+_data = {
+"points": PackedVector3Array(30, 10, 26, 7.5, 2.5, 6.5, 0, 0, 0, -15, -4, -13, 15, 5, 13, 15, 4, 13, -15, -5, -13, 0, 0, 0, 30, 9, 26),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_ffmjq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -13, 0, 15),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_kh2v8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 30, 0, 15, 0, 0, 0, -18.766083, -27.705414, -63.865723, 18.766083, 27.705414, 63.865723, 86.08067, 79.82768, 105.9975, 26.73851, 13.269829, -41.519836, -26.73851, -13.269829, 41.519836, 30.193985, 104.05493, 322.81262, 19.388153, 3.2065353, -49.86093, -19.388153, -3.2065353, 49.86093, -20.695358, 66.223015, 422.58072, -15, -7.5, -13, 24.78328, -0.23310089, 20.42395, 22, 60, 526),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_ke84l"]
+_data = {
+"points": PackedVector3Array(30, 10, 26, -7.5, -2.5, -6.5, 0, 0, 0, 15, 6, 13, -15, -5, -13, -15, -6, -13, 15, 5, 13, 0, 0, 0, -30, -11, -26),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_vvrac"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, -15),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Hill3" type="Node3D" unique_id=595925297]
+
+[node name="Path3D" type="Path3D" parent="." unique_id=863940761]
+curve = SubResource("Curve3D_vbxqw")
+
+[node name="Street" type="CSGPolygon3D" parent="Path3D" unique_id=690911882]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, -2, -40, -2, -40, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("1_ke84l")
+
+[node name="Sidewalk" type="CSGPolygon3D" parent="Path3D" unique_id=964762093]
+use_collision = true
+polygon = PackedVector2Array(0, 1, 0, -2, 20, -2, 20, 1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("2_wdhw6")
+
+[node name="Curb" type="CSGPolygon3D" parent="Path3D" unique_id=1965886810]
+use_collision = true
+polygon = PackedVector2Array(0, 1.5, -1, -2, 2, -2, 1, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Curb2" type="CSGPolygon3D" parent="Path3D" unique_id=1207145851]
+use_collision = true
+polygon = PackedVector2Array(21, 1.5, 22, -2, 19, -2, 20, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Path3D2" type="Path3D" parent="Path3D" unique_id=459961656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -221.127, -115, -188.633)
+curve = SubResource("Curve3D_8glq0")
+
+[node name="Street" type="CSGPolygon3D" parent="Path3D/Path3D2" unique_id=967883562]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, -2, -40, -2, -40, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("1_ke84l")
+
+[node name="Path3D2" type="Path3D" parent="Path3D/Path3D2" unique_id=571195490]
+curve = SubResource("Curve3D_wdhw6")
+
+[node name="Sidewalk" type="CSGPolygon3D" parent="Path3D/Path3D2/Path3D2" unique_id=181827621]
+use_collision = true
+polygon = PackedVector2Array(0, 1, 0, -2, 20, -2, 20, 1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("2_wdhw6")
+
+[node name="Curb2" type="CSGPolygon3D" parent="Path3D/Path3D2/Path3D2" unique_id=1070985686]
+use_collision = true
+polygon = PackedVector2Array(21, 1.5, 22, -2, 19, -2, 20, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Path3D" type="Path3D" parent="Path3D/Path3D2/Path3D2" unique_id=681710099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 9, 26)
+curve = SubResource("Curve3D_ffmjq")
+
+[node name="Curb" type="CSGPolygon3D" parent="Path3D/Path3D2/Path3D2/Path3D" unique_id=1204499670]
+use_collision = true
+polygon = PackedVector2Array(0, 1.5, -1, -2, 2, -2, 1, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Path3D" type="Path3D" parent="Path3D/Path3D2" unique_id=2000664777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -60, -526)
+curve = SubResource("Curve3D_kh2v8")
+
+[node name="Sidewalk" type="CSGPolygon3D" parent="Path3D/Path3D2/Path3D" unique_id=920053872]
+use_collision = true
+polygon = PackedVector2Array(0, 1, 0, -2, 20, -2, 20, 1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("2_wdhw6")
+
+[node name="Curb" type="CSGPolygon3D" parent="Path3D/Path3D2/Path3D" unique_id=1743564277]
+use_collision = true
+polygon = PackedVector2Array(0, 1.5, -1, -2, 2, -2, 1, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Curb2" type="CSGPolygon3D" parent="Path3D/Path3D2/Path3D" unique_id=831401606]
+use_collision = true
+polygon = PackedVector2Array(21, 1.5, 22, -2, 19, -2, 20, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Street" type="CSGPolygon3D" parent="Path3D/Path3D2/Path3D" unique_id=522193488]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, -2, -40, -2, -40, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("1_ke84l")
+
+[node name="Path3D2" type="Path3D" parent="." unique_id=201410530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, -100, -180)
+curve = SubResource("Curve3D_ke84l")
+
+[node name="Sidewalk" type="CSGPolygon3D" parent="Path3D2" unique_id=421051605]
+use_collision = true
+polygon = PackedVector2Array(0, 1, 0, -2, 20, -2, 20, 1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("2_wdhw6")
+
+[node name="Curb2" type="CSGPolygon3D" parent="Path3D2" unique_id=462815061]
+use_collision = true
+polygon = PackedVector2Array(21, 1.5, 22, -2, 19, -2, 20, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Path3D" type="Path3D" parent="Path3D2" unique_id=268985656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -9, -26)
+curve = SubResource("Curve3D_vvrac")
+
+[node name="Curb" type="CSGPolygon3D" parent="Path3D2/Path3D" unique_id=257359538]
+use_collision = true
+polygon = PackedVector2Array(0, 1.5, -1, -2, 2, -2, 1, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_8glq0")
+
+[node name="Exit" type="Marker3D" parent="." unique_id=2127018903]
+transform = Transform3D(0.45399052, 0, 0.8910065, 0, 1, 0, -0.8910065, 0, 0.45399052, -243.127, -175, -714.633)
+gizmo_extents = 5.0

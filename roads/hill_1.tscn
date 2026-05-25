@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dcx3yvpqu8h27"]
+
+[ext_resource type="Material" uid="uid://cbnxqeyd683" path="res://roads/street_material.tres" id="1_ihe8v"]
+[ext_resource type="Material" uid="uid://da6fj535rg017" path="res://roads/sidewalk_material.tres" id="2_lc15w"]
+[ext_resource type="Material" uid="uid://cs6qokkfvpgd5" path="res://roads/curb_material.tres" id="3_j0mdm"]
+
+[sub_resource type="Curve3D" id="Curve3D_8dxm4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1.9, 0, 70.3, -1.9, -5.3, -70.3, -21.2, 0, -134.1, 27.57, -0.38, 129.62, -27.57, 0.38, -129.62, 12.400001, 55.4, -361.6, 30.279999, 20.43, 53.05, -30.279999, -20.43, -53.05, -132.1, -59.2, -602.8, -25, 0, 25, 24.18, -0.42, -25.689999, -80, -100, -700),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Hill1" type="Node3D" unique_id=1178498291]
+
+[node name="Path3D" type="Path3D" parent="." unique_id=627933194]
+curve = SubResource("Curve3D_8dxm4")
+
+[node name="Sidewalk" type="CSGPolygon3D" parent="Path3D" unique_id=2109164378]
+use_collision = true
+polygon = PackedVector2Array(0, 1, 0, -2, 20, -2, 20, 1)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("2_lc15w")
+
+[node name="Curb" type="CSGPolygon3D" parent="Path3D" unique_id=179647086]
+use_collision = true
+polygon = PackedVector2Array(0, 1.5, -1, -2, 2, -2, 1, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_j0mdm")
+
+[node name="Curb2" type="CSGPolygon3D" parent="Path3D" unique_id=33479746]
+use_collision = true
+polygon = PackedVector2Array(21, 1.5, 22, -2, 19, -2, 20, 1.5)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_j0mdm")
+
+[node name="Street" type="CSGPolygon3D" parent="Path3D" unique_id=1956346496]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, -2, -40, -2, -40, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 1
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("1_ihe8v")
+
+[node name="Exit" type="Marker3D" parent="." unique_id=1925900862]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -80, -100, -700)
+gizmo_extents = 10.0

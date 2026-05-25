@@ -3,7 +3,8 @@ extends Area3D
 
 @export var entry_path: ChoicePath
 @export var bike_scene: PackedScene
-@export var spawn_cooldown: float = 1
+@export var min_cooldown: float = 0.5
+@export var max_cooldown: float = 3
 
 var spawn_timer = 0
 
@@ -14,7 +15,10 @@ func _process(delta: float) -> void:
 		return
 	if not has_overlapping_bodies():
 		spawn_bike()
-		spawn_timer = spawn_cooldown
+		var increment = randf_range(min_cooldown, max_cooldown)
+		increment *= randf_range(min_cooldown, max_cooldown)
+		increment = sqrt(increment)
+		spawn_timer = increment
 
 
 func spawn_bike():

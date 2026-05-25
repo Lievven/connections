@@ -85,6 +85,7 @@ func _start_new_game() -> void:
 		return
 	phone_menu.deactivate_menu()
 	switch_menu(Menu.PAUSE)
+	connection_manager.game_timer = 0
 	connection_manager.start_new_run.emit()
 
 
@@ -92,6 +93,7 @@ func _load_replay() -> void:
 	if not connection_manager.is_menu_active:
 		return
 	switch_menu(Menu.PAUSE)
+	connection_manager.game_timer = 0
 	connection_manager.import_replay.emit()
 	connection_manager.start_replay.emit()
 
@@ -99,6 +101,7 @@ func _load_replay() -> void:
 func _start_replay() -> void:
 	if not connection_manager.is_menu_active:
 		return
+	connection_manager.game_timer = 0
 	connection_manager.start_replay.emit()
 	phone_menu.deactivate_menu()
 

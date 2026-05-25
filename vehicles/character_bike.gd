@@ -6,6 +6,10 @@ extends CharacterBody3D
 @export var acceleration: float = 3
 @export var target_path: ChoicePath
 @export var follow_distance: float = 5
+
+@onready var current_max_speed = max_speed
+var speed_change_timer = 0
+
 var speed: float = 0
 var target_point: Vector3
 
@@ -17,11 +21,19 @@ func _ready() -> void:
 	path_follow = PathFollow3D.new()
 	follows_bike = target_path.register_bike(self)
 	target_path.add_child(path_follow)
+	target_point = path_follow.global_position
 
 
 func _process(delta: float) -> void:
+	speed_change_timer -= delta
+	if speed_change_timer <= 0:
+		speed_change_timer += 10
+		current_max_speed = randf_range(max_speed * 0.9, max_speed * 1.1)
+	
 	var path_point = path_follow.global_position
 	path_point.y = global_position.y
+	$Target.global_position = path_follow.global_position
+	
 	if path_point.distance_squared_to(global_position) > 25:
 		break_or_accelerate(delta)
 		return
@@ -46,7 +58,7 @@ func break_or_accelerate(delta: float):
 		speed -= acceleration * delta
 	else:
 		speed += acceleration * delta
-	speed = clampf(speed, 0, max_speed)
+	speed = clampf(speed, 0, current_max_speed)
 	
 
 

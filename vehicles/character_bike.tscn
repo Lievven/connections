@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d15y0x3eg26qp"]
 
 [ext_resource type="Script" uid="uid://bi3kojg1717p4" path="res://vehicles/character_bike.gd" id="1_42rb3"]
+[ext_resource type="PackedScene" uid="uid://1cisav5mrr74" path="res://vehicles/fahrrad.glb" id="2_ij4h4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4js54"]
 
@@ -8,10 +9,11 @@
 friction = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4js54"]
-size = Vector3(3, 1, 1)
+size = Vector3(2.574646, 1.4714661, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4js54"]
 height = 0.2
+radius = 1.0
 
 [sub_resource type="TorusMesh" id="TorusMesh_42rb3"]
 inner_radius = 0.4
@@ -61,23 +63,29 @@ physics_material_override = SubResource("PhysicsMaterial_42rb3")
 gravity_scale = 10.0
 inertia = Vector3(5000, 5000, 5000)
 
+[node name="Fahrrad" parent="Generic6DOFJoint3D/RigidBody3D" unique_id=1709833413 instance=ExtResource("2_ij4h4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5471089, -0.6031823, -0.10000007)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Generic6DOFJoint3D/RigidBody3D" unique_id=1934839079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23602486, 0)
 shape = SubResource("BoxShape3D_4js54")
 
 [node name="Wheel" type="CollisionShape3D" parent="Generic6DOFJoint3D/RigidBody3D" unique_id=1562150890]
-transform = Transform3D(1, 0, 0, 0, 0, -1.0000001, 0, 1.0000001, 0, -1.4, -0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 0, -1.0000001, 0, 1.0000001, 0, -1.583, -0.6, -0.1)
 shape = SubResource("CylinderShape3D_4js54")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Generic6DOFJoint3D/RigidBody3D/Wheel" unique_id=2007844725]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("TorusMesh_42rb3")
 
 [node name="Wheel2" type="CollisionShape3D" parent="Generic6DOFJoint3D/RigidBody3D" unique_id=288861534]
-transform = Transform3D(1, 0, 0, 0, 0, -1.0000001, 0, 1.0000001, 0, 1.5000001, -0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 0, -1.0000001, 0, 1.0000001, 0, 1.555, -0.6, -0.1)
 shape = SubResource("CylinderShape3D_4js54")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Generic6DOFJoint3D/RigidBody3D/Wheel2" unique_id=43024694]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("TorusMesh_42rb3")
 
 [node name="Target" type="MeshInstance3D" parent="." unique_id=679516023]

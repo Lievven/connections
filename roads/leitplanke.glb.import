@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b538eivx0j447"
-path="res://.godot/imported/lenkrad.glb-c9405ec2f009134316f252d23e07ed18.scn"
+uid="uid://beftcx2jwqf2o"
+path="res://.godot/imported/leitplanke.glb-3e552d74a44a77c7a01b4480d7533c0f.scn"
 
 [deps]
 
-source_file="res://vehicles/lenkrad.glb"
-dest_files=["res://.godot/imported/lenkrad.glb-c9405ec2f009134316f252d23e07ed18.scn"]
+source_file="res://roads/leitplanke.glb"
+dest_files=["res://.godot/imported/leitplanke.glb-3e552d74a44a77c7a01b4480d7533c0f.scn"]
 
 [params]
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Connections"
-run/main_scene="uid://bvd6yq4ljpman"
+run/main_scene="uid://cxix4w0qb5nmn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,10 @@ key_press_interceptor="*uid://0hdswuxbpvb4"
 [debug]
 
 shapes/collision/shape_color=Color(0, 0.6, 0.7019608, 0.6666667)
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 

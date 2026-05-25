@@ -15,6 +15,7 @@ func _ready() -> void:
 	active_position = position
 	active_basis = basis
 	activate_menu()
+	get_tree().paused = false
 	connection_manager.win_run.connect(activate_menu)
 
 

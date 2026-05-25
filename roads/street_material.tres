@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cbnxqeyd683"]
+
+[ext_resource type="Texture2D" uid="uid://cl4woqfdqsawr" path="res://roads/street_texture.jpg" id="1_nwtp8"]
+
+[resource]
+albedo_texture = ExtResource("1_nwtp8")
+uv1_scale = Vector3(0.071, 14.87, 100)
+texture_filter = 5

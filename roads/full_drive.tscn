@@ -1,0 +1,405 @@
+[gd_scene format=3 uid="uid://cxix4w0qb5nmn"]
+
+[ext_resource type="PackedScene" uid="uid://dcx3yvpqu8h27" path="res://roads/hill_1.tscn" id="1_acamh"]
+[ext_resource type="PackedScene" uid="uid://bar5ti2wju73t" path="res://roads/tankstelle.tscn" id="2_8enyt"]
+[ext_resource type="PackedScene" uid="uid://dvugli4km7f41" path="res://roads/kreuzung.tscn" id="2_w545f"]
+[ext_resource type="PackedScene" uid="uid://bek3qq62a8qgm" path="res://roads/hill_3.tscn" id="3_nkaj7"]
+[ext_resource type="PackedScene" uid="uid://c4845dvr05npt" path="res://vehicles/vehicle_body.tscn" id="6_0db52"]
+[ext_resource type="PackedScene" uid="uid://dyhc35lhjsnfs" path="res://menus/phone_menu.tscn" id="7_i6g6e"]
+[ext_resource type="Sky" uid="uid://xxak1xrpjds8" path="res://sky_try.tres" id="8_i6g6e"]
+[ext_resource type="PackedScene" uid="uid://c4ttgqecubvhg" path="res://utilities/drive_path.tscn" id="9_jkjbo"]
+[ext_resource type="PackedScene" uid="uid://hqh8o2gdyqi" path="res://utilities/checkpoint.tscn" id="9_v66ci"]
+[ext_resource type="PackedScene" uid="uid://bq72yucdwefcj" path="res://utilities/bike_spawner.tscn" id="10_v66ci"]
+[ext_resource type="PackedScene" uid="uid://hbo41845be8g" path="res://utilities/ChoicePath.tscn" id="11_gi0ld"]
+[ext_resource type="PackedScene" uid="uid://duwyyuvh5oc7d" path="res://utilities/traffic_light.tscn" id="13_c75lj"]
+
+[sub_resource type="Environment" id="Environment_jkjbo"]
+background_mode = 2
+sky = ExtResource("8_i6g6e")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jkjbo"]
+height = 20.0
+radius = 45.154785
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gi0ld"]
+height = 10.0
+radius = 5.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nnkje"]
+height = 20.0
+radius = 10.0
+
+[sub_resource type="Curve3D" id="Curve3D_nnkje"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -6.684971, 1.8976421, -92.485, 0, 0, 0, 0, 0, 0, 27.950455, 34.919582, -194.53297, 0, 0, 0, 0, 0, 0, 33.665146, 51.27661, -242.36702, 0, 0, 0, 0, 0, 0, 29.80474, 62.88307, -279.9062, 0, 0, 0, 0, 0, 0, 18.728012, 56.38147, -335.94666),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_g5nbr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -27.489124, 27.616402, -430.1851, 0, 0, 0, 0, 0, 0, -64.6742, -15.4699135, -479.06805, 0, 0, 0, 0, 0, 0, -96.870415, -44.435238, -513.29254, 0, 0, 0, 0, 0, 0, -117.44766, -59.851036, -542.3768, 0, 0, 0, 0, 0, 0, -125.30968, -69.385025, -570.4512, 0, 0, 0, 0, 0, 0, -123.59897, -75.20834, -590.1342, 0, 0, 0, 0, 0, 0, -111.446396, -80.94416, -608.6439, 0, 0, 0, 0, 0, 0, -70.17087, -88.33954, -643.8155, 0, 0, 0, 0, 0, 0, -41.5484, -91.70355, -668.25714, 0, 0, 0, 0, 0, 0, 9.137327, -100.187035, -722.68915),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[sub_resource type="Curve3D" id="Curve3D_gi0ld"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.1857986, -0.0004272461, -0.5736084, 0, 0, 0, 0, 0, 0, 91.13124, 0.0040283203, -14.424133, 0, 0, 0, 0, 0, 0, 168.05829, -0.0062408447, -13.939514, 0, 0, 0, 0, 0, 0, 261.7141, -0.48799133, 1.9484253, 0, 0, 0, 0, 0, 0, 354.7422, -0.004638672, 33.818848, 0, 0, 0, 0, 0, 0, 443.44052, -0.024978638, 78.46344, 0, 0, 0, 0, 0, 0, 544.2424, -0.039764404, 146.3305),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_c75lj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 384.10046, -7.4299774, -381.2118),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_n488r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -45.727783, 0, -46.425232, 0, 0, 0, 0, 0, 0, -73.588745, 0, -82.54291, 0, 0, 0, 0, 0, 0, -108.87494, 0, -132.74976, 0, 0, 0, 0, 0, 0, -158.9195, 0, -216.30225, 0, 0, 0, 0, 0, 0, -186.81421, 0, -276.21143, 5.5782776, -0.002937317, 31.01062, -5.5782776, 0.002937317, -31.01062, -203.80493, 0, -339.21802, -2.9252625, -0.0044403076, 38.1438, 2.9252625, 0.0044403076, -38.1438, -206.41718, 0, -425.36108, 0, 0, 0, 0, 0, 0, -182.48093, 0, -522.9376),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[sub_resource type="Curve3D" id="Curve3D_17geb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51.4068, -2.964157, -50.589233, 0, 0, 0, 0, 0, 0, 91.187256, -1.1983337, -88.56665, 0, 0, 0, 0, 0, 0, 108.578, -2.193863, -121.028564, 0, 0, 0, 0, 0, 0, 117.88147, -27.19564, -169.91113, 0, 0, 0, 0, 0, 0, 118.35846, -49.20465, -215.45569, 0, 0, 0, 0, 0, 0, 115.34296, -62.299103, -252.73657, 0, 0, 0, 0, 0, 0, 109.343445, -87.25183, -297.51147),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_61x6i"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 100.815125, -123.46716, -401.25952, 0, 0, 0, 0, 0, 0, 113.14105, -111.43164, -436.75122, 0, 0, 0, 0, 0, 0, 143.08075, -111.33644, -453.27637, 0, 0, 0, 0, 0, 0, 187.32947, -92.47426, -465.69702, 0, 0, 0, 0, 0, 0, 250.40106, -66.916885, -484.21057, 0, 0, 0, 0, 0, 0, 302.5515, -68.78012, -506.72595, 0, 0, 0, 0, 0, 0, 369.71027, -72.524, -537.22485, 0, 0, 0, 0, 0, 0, 424.8745, -88.06908, -582.213, 0, 0, 0, 0, 0, 0, 447.85724, -102.5004, -619.2572, 0, 0, 0, 0, 0, 0, 463.92468, -125.00725, -665.43054, 0, 0, 0, 0, 0, 0, 469.61023, -168.77206, -723.1233, 0, 0, 0, 0, 0, 0, 452.1728, -173.47803, -782.782, 0, 0, 0, 0, 0, 0, 417.16895, -176.47235, -894.67285),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
+
+[sub_resource type="Curve3D" id="Curve3D_bofkp"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -170.73584, 0, -525.17065),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_1p5ta"]
+_data = {
+"points": PackedVector3Array(22.53833, -2.062317, 16.532959, -22.53833, 2.062317, -16.532959, 0, 0, 0, 23.264282, -2.1159668, 17.984863, -23.264282, 2.1159668, -17.984863, -39.707825, 1.9631348, -30.939209),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_nq16t"]
+_data = {
+"points": PackedVector3Array(113.19342, -8.519714, 51.770996, -113.19342, 8.519714, -51.770996, 0, 0, 0, 93.68347, 2.3824463, 1.2294922, -93.68347, -2.3824463, -1.2294922, -249.2655, -4.6085815, -42.946777),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_rb8ot"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -74.71631, -21.167236, 76.076416, 0, 0, 0, 0, 0, 0, -201.65039, -44.617126, 180.6167, 0, 0, 0, 0, 0, 0, -338.67993, -83.18619, 276.3645, 0, 0, 0, 0, 0, 0, -495.60962, -101.28528, 350.96484, 67.460205, -0.041809082, -9.595703, -67.460205, 0.041809082, 9.595703, -611.8513, -107.31671, 379.66772, 53.688354, -10.000824, 10.435303, -53.688354, 10.000824, -10.435303, -786.2938, -87.25641, 378.2627, 101.176025, -31.387512, 20.503662, -101.176025, 31.387512, -20.503662, -1106.7906, -8.543091, 283.56934, 42.354736, -9.047607, 9.025879, -42.354736, 9.047607, -9.025879, -1258.9174, 3.9680176, 247.59277, 65.4729, -0.016357422, 3.3532715, -65.4729, 0.016357422, -3.3532715, -1509.542, 27.682983, 217.37231, 101.552, -0.00048828125, -25.968994, -101.552, 0.00048828125, 25.968994, -1863.001, 31.141571, 227.91162),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
+[sub_resource type="Curve3D" id="Curve3D_aj6aq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -190.79205, 0, 68.278076),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_uw2il"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -29.328674, 0, -87.745605),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ewej2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -88.85635, 0, 34.421875),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_3usln"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 89.29712, 0, -58.204346, 0, 0, 0, 0, 0, 0, 165.78207, 0, -117.367676, 0, 0, 0, 0, 0, 0, 226.84799, 0, -173.60596, 0, 0, 0, 0, 0, 0, 280.65128, 0, -234.19409, 0, 0, 0, 0, 0, 0, 327.6072, 0, -302.01685),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_e3xtb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23.54309, 0, -77.70923),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_aeret"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -74.71631, -21.167236, 76.076416, 0, 0, 0, 0, 0, 0, -201.65039, -44.617126, 180.6167, 0, 0, 0, 0, 0, 0, -338.67993, -83.18619, 276.3645, 0, 0, 0, 0, 0, 0, -495.60962, -101.28528, 350.96484, 67.460205, -0.041809082, -9.595703, -67.460205, 0.041809082, 9.595703, -611.8513, -107.31671, 379.66772, 53.688354, -10.000824, 10.435303, -53.688354, 10.000824, -10.435303, -786.2938, -87.25641, 378.2627, 101.176025, -31.387512, 20.503662, -101.176025, 31.387512, -20.503662, -1106.7906, -8.543091, 283.56934, 42.354736, -9.047607, 9.025879, -42.354736, 9.047607, -9.025879, -1258.9174, 3.9680176, 247.59277, 65.4729, -0.016357422, 3.3532715, -65.4729, 0.016357422, -3.3532715, -1509.542, 27.682983, 217.37231, 101.552, -0.00048828125, -25.968994, -101.552, 0.00048828125, 25.968994, -1863.001, 31.141571, 227.91162, 0, 0, 0, 0, 0, 0, -2102.4617, 29.761078, 306.59766),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnkje"]
+size = Vector3(40, 40, 85.64465)
+
+[node name="FullDrive" type="Node3D" unique_id=1791584489]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1755261611]
+environment = SubResource("Environment_jkjbo")
+
+[node name="Hill1" parent="." unique_id=1178498291 instance=ExtResource("1_acamh")]
+metadata/_edit_lock_ = true
+
+[node name="Tankstelle" parent="Hill1/Exit" parent_id_path=PackedInt32Array(1178498291, 1925900862) index="0" unique_id=1891325197 instance=ExtResource("2_8enyt")]
+
+[node name="Hill3" parent="Hill1/Exit/Tankstelle/Exit" parent_id_path=PackedInt32Array(1891325197, 1535692019) index="0" unique_id=595925297 instance=ExtResource("3_nkaj7")]
+
+[node name="Kreuzung" parent="Hill1/Exit/Tankstelle/Exit/Hill3/Exit" parent_id_path=PackedInt32Array(595925297, 2127018903) index="0" unique_id=2077145579 instance=ExtResource("2_w545f")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -1000)
+
+[node name="Checkpoints" type="Node3D" parent="." unique_id=363388633]
+
+[node name="Checkpoint1" parent="Checkpoints" unique_id=217588542 node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("9_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.243225, 60.929676, -370.1107)
+next_checkpoint = NodePath("../Checkpoint2")
+is_active = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint1" unique_id=1738516165]
+shape = SubResource("CylinderShape3D_jkjbo")
+
+[node name="Checkpoint2" parent="Checkpoints" unique_id=1233572382 node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("9_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.5739, -93.84982, -987.61456)
+next_checkpoint = NodePath("../Checkpoint3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2" unique_id=1874289872]
+shape = SubResource("CylinderShape3D_jkjbo")
+
+[node name="Checkpoint3" parent="Checkpoints" unique_id=1736732640 node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("9_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 628.4073, -197.52444, -1667.5328)
+next_checkpoint = NodePath("../Checkpoint4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3" unique_id=1176432953]
+shape = SubResource("CylinderShape3D_jkjbo")
+
+[node name="Checkpoint4" parent="Checkpoints" unique_id=942601736 node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("9_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 758.44763, -268.6801, -2501.4768)
+next_checkpoint = NodePath("../Checkpoint5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint4" unique_id=531211946]
+shape = SubResource("CylinderShape3D_jkjbo")
+
+[node name="Checkpoint5" parent="Checkpoints" unique_id=2111394342 instance=ExtResource("9_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 639.4024, -268.6801, -3041.0452)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint5" unique_id=134222125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4974365, -16.842865, -0.57006836)
+shape = SubResource("CylinderShape3D_jkjbo")
+
+[node name="DrivePath" parent="." unique_id=1548245820 node_paths=PackedStringArray("player_vehicle") instance=ExtResource("9_jkjbo")]
+player_vehicle = NodePath("../VehicleBody3D")
+
+[node name="VehicleBody3D" parent="." unique_id=2103107308 instance=ExtResource("6_0db52")]
+transform = Transform3D(-0.9668323, 0, -0.25541207, 0, 1, 0, 0.25541207, 0, -0.9668323, 7.411085, 2.2467308, -8.777824)
+
+[node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=596826099]
+transform = Transform3D(-1, -7.619396e-09, 8.70901e-08, 0, 0.99619466, 0.08715573, -8.742278e-08, 0.08715573, -0.99619466, 0, 1, 0)
+
+[node name="PhoneMenu" parent="VehicleBody3D" unique_id=708378194 node_paths=PackedStringArray("inactive_target") instance=ExtResource("7_i6g6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0058498, 0.36906052)
+inactive_target = NodePath("../Marker")
+
+[node name="Marker" type="Marker3D" parent="VehicleBody3D" unique_id=1412245910]
+transform = Transform3D(0.2963583, 0.18280986, -0.9374179, -0.9550768, 0.05672551, -0.29087874, 9.1749985e-09, 0.9815104, 0.19140853, -0.3947153, 0.4856944, -0.13423538)
+
+[node name="Bikes" type="Node3D" parent="." unique_id=290980890]
+
+[node name="BikeSpawner" parent="Bikes" unique_id=1927963118 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -14.224676, 2.029625, -9.994224)
+entry_path = NodePath("../RightLanes")
+min_cooldown = 0.1
+max_cooldown = 2.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner" unique_id=2011442843]
+shape = SubResource("CylinderShape3D_gi0ld")
+
+[node name="BikeSpawner5" parent="Bikes" unique_id=1776100761 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -23.891626, 45.287075, -442.7523)
+entry_path = NodePath("../RightLanes/ChoicePath")
+min_cooldown = 0.1
+max_cooldown = 2.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner5" unique_id=1492711558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1206703, -0.75292206, 1.9477844)
+shape = SubResource("CylinderShape3D_nnkje")
+
+[node name="BikeSpawner2" parent="Bikes" unique_id=1062952202 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 677.95306, -99.71036, -742.812)
+entry_path = NodePath("../RightLanes/Tankstelle/ChoicePath4")
+min_cooldown = 1.0
+max_cooldown = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner2" unique_id=1746011286]
+shape = SubResource("CylinderShape3D_gi0ld")
+
+[node name="BikeSpawner3" parent="Bikes" unique_id=57045050 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2654.384, -301.21088, -2748.6274)
+entry_path = NodePath("../RightLanes/Kreuzung/ChoicePath2")
+min_cooldown = 1.0
+max_cooldown = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner3" unique_id=1816628205]
+shape = SubResource("CylinderShape3D_gi0ld")
+
+[node name="BikeSpawner4" parent="Bikes" unique_id=629740040 node_paths=PackedStringArray("entry_path") instance=ExtResource("10_v66ci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.72696, -273.5224, -2400.697)
+entry_path = NodePath("../RightLanes/Kreuzung/ChoicePath5")
+min_cooldown = 1.0
+max_cooldown = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bikes/BikeSpawner4" unique_id=724716344]
+shape = SubResource("CylinderShape3D_gi0ld")
+
+[node name="RightLanes" parent="Bikes" unique_id=747330257 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.102646, 1.2229462, -56.303333)
+curve = SubResource("Curve3D_nnkje")
+connections = [NodePath("ChoicePath")]
+
+[node name="ChoicePath" parent="Bikes/RightLanes" unique_id=939686618 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+curve = SubResource("Curve3D_g5nbr")
+connections = [NodePath("../Tankstelle"), NodePath("../Tankstelle/ChoicePath2"), NodePath("../Tankstelle/ChoicePath2"), NodePath("../Tankstelle/ChoicePath2")]
+
+[node name="Tankstelle" parent="Bikes/RightLanes" unique_id=724398903 instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.436386, -98.84029, -742.4025)
+curve = SubResource("Curve3D_gi0ld")
+
+[node name="ChoicePath2" parent="Bikes/RightLanes/Tankstelle" unique_id=171363466 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.939682, 5.244751, -54.566467)
+curve = SubResource("Curve3D_c75lj")
+connections = [NodePath("../../Hill")]
+
+[node name="ChoicePath4" parent="Bikes/RightLanes/Tankstelle" unique_id=1320627450 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 636.6193, -2.0930176, 55.89386)
+curve = SubResource("Curve3D_n488r")
+connections = [NodePath("../../Hill")]
+
+[node name="Hill" parent="Bikes/RightLanes" unique_id=2115436278 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 556.4076, -97.71135, -1269.0673)
+curve = SubResource("Curve3D_17geb")
+connections = [NodePath("Hill2")]
+
+[node name="Hill2" parent="Bikes/RightLanes/Hill" unique_id=1565224057 node_paths=PackedStringArray("traffic_light", "connections") instance=ExtResource("11_gi0ld")]
+curve = SubResource("Curve3D_61x6i")
+traffic_light = NodePath("../../../../TrafficLights/TrafficLight1")
+connections = [NodePath("../../Kreuzung"), NodePath("../../Kreuzung/ChoicePath")]
+
+[node name="Kreuzung" parent="Bikes/RightLanes" unique_id=473166388 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 942.936, -274.74536, -2256.3381)
+curve = SubResource("Curve3D_bofkp")
+connections = [NodePath("ChoicePath3")]
+
+[node name="ChoicePath" parent="Bikes/RightLanes/Kreuzung" unique_id=656123842 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.719543, 0, 1.9362793)
+curve = SubResource("Curve3D_1p5ta")
+connections = [NodePath("ChoicePath")]
+max_bikes = 3
+
+[node name="ChoicePath" parent="Bikes/RightLanes/Kreuzung/ChoicePath" unique_id=1213465491 node_paths=PackedStringArray("traffic_light", "connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.824585, 0, -50.459717)
+curve = SubResource("Curve3D_nq16t")
+traffic_light = NodePath("../../../../../TrafficLights/TrafficLight2")
+connections = [NodePath("../../ChoicePath4"), NodePath("../../ChoicePath4")]
+
+[node name="ChoicePath2" parent="Bikes/RightLanes/Kreuzung" unique_id=904208472 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1735.5508, -27.688477, -435.98608)
+curve = SubResource("Curve3D_rb8ot")
+connections = [NodePath("ChoicePath4")]
+
+[node name="ChoicePath4" parent="Bikes/RightLanes/Kreuzung/ChoicePath2" unique_id=1948486368 node_paths=PackedStringArray("traffic_light", "connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1922.1333, 27.688477, 239.87573)
+curve = SubResource("Curve3D_aj6aq")
+traffic_light = NodePath("../../../../../TrafficLights/TrafficLight3")
+connections = [NodePath("../../ChoicePath4")]
+
+[node name="ChoicePath3" parent="Bikes/RightLanes/Kreuzung" unique_id=1285313529 instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.0534, 5.7338257, -632.9419)
+curve = SubResource("Curve3D_uw2il")
+
+[node name="ChoicePath4" parent="Bikes/RightLanes/Kreuzung" unique_id=1632869884 instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -510.1366, 0, -76.6062)
+curve = SubResource("Curve3D_ewej2")
+
+[node name="ChoicePath5" parent="Bikes/RightLanes/Kreuzung" unique_id=1492549733 node_paths=PackedStringArray("connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.1063, 0, -88.055664)
+curve = SubResource("Curve3D_3usln")
+connections = [NodePath("ChoicePath6")]
+
+[node name="ChoicePath6" parent="Bikes/RightLanes/Kreuzung/ChoicePath5" unique_id=1654363145 node_paths=PackedStringArray("traffic_light", "connections") instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 358.19727, -1.1350098, -361.6272)
+curve = SubResource("Curve3D_e3xtb")
+traffic_light = NodePath("../../../../../TrafficLights/TrafficLight4")
+connections = [NodePath("../../ChoicePath3")]
+
+[node name="LefftLanes" parent="Bikes" unique_id=1970935430 instance=ExtResource("11_gi0ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2667.6433, -301.21088, -2733.5571)
+curve = SubResource("Curve3D_aeret")
+
+[node name="TrafficLights" type="Node3D" parent="." unique_id=412529216]
+
+[node name="TrafficLight1" parent="TrafficLights" unique_id=1422616034 node_paths=PackedStringArray("blocked_intersection") instance=ExtResource("13_c75lj")]
+transform = Transform3D(3.6388311, 0, -1.6609961, 0, 4, 0, 1.6609961, 0, 3.6388311, 604.1111, -211.42085, -1684.0253)
+blocked_intersection = NodePath("../Crossing1")
+
+[node name="TrafficLight2" parent="TrafficLights" unique_id=1709467804 node_paths=PackedStringArray("blocked_intersection") instance=ExtResource("13_c75lj")]
+transform = Transform3D(-0.12634104, 0, -3.9980044, 0, 4, 0, 3.9980044, 0, -0.12634104, 824.51465, -275.56644, -2363.668)
+blocked_intersection = NodePath("../Crossing2")
+
+[node name="TrafficLight3" parent="TrafficLights" unique_id=276061588 node_paths=PackedStringArray("blocked_intersection") instance=ExtResource("13_c75lj")]
+transform = Transform3D(1.5854515, 0, -3.6723757, 0, 4, 0, 3.6723757, 0, 1.5854515, 753.86365, -275.32452, -2525.2542)
+blocked_intersection = NodePath("../Crossing3")
+
+[node name="TrafficLight4" parent="TrafficLights" unique_id=1430440901 node_paths=PackedStringArray("blocked_intersection") instance=ExtResource("13_c75lj")]
+transform = Transform3D(1.69003, 0, -3.6254377, 0, 4, 0, 3.6254377, 0, 1.69003, 658.10944, -275.3566, -2787.841)
+blocked_intersection = NodePath("../Crossing4")
+
+[node name="Crossing1" type="Area3D" parent="TrafficLights" unique_id=824322518]
+transform = Transform3D(0.9097078, 0, -0.41524902, 0, 1, 0, 0.41524902, 0, 0.9097078, 604.1111, -211.42085, -1684.0253)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/Crossing1" unique_id=651798620]
+transform = Transform3D(0.8855883, 0, 0.4644711, 0, 1, 0, -0.4644711, 0, 0.8855883, 26.737366, 0, 4.8485107)
+shape = SubResource("BoxShape3D_nnkje")
+
+[node name="Crossing2" type="Area3D" parent="TrafficLights" unique_id=358786624]
+transform = Transform3D(0.5904789, 0, -0.8070531, 0, 1, 0, 0.8070531, 0, 0.5904789, 792.60266, -275.56644, -2362.0764)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/Crossing2" unique_id=1329812265]
+transform = Transform3D(0.8855883, 0, 0.4644711, 0, 1, 0, -0.4644711, 0, 0.8855883, 30.622925, 0, -8.023193)
+shape = SubResource("BoxShape3D_nnkje")
+
+[node name="Crossing3" type="Area3D" parent="TrafficLights" unique_id=922892833]
+transform = Transform3D(-0.020663146, 0, -0.9997865, 0, 1, 0, 0.9997865, 0, -0.020663146, 753.86365, -275.32452, -2525.2542)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/Crossing3" unique_id=928395584]
+transform = Transform3D(0.95243317, 0, 0.3047479, 0, 1, 0, -0.3047479, 0, 0.95243317, 22.922852, 0, -7.003662)
+shape = SubResource("BoxShape3D_nnkje")
+
+[node name="Crossing4" type="Area3D" parent="TrafficLights" unique_id=1542129359]
+transform = Transform3D(0.62492937, 0, -0.7806813, 0, 1, 0, 0.7806813, 0, 0.62492937, 658.10944, -275.3566, -2787.841)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/Crossing4" unique_id=1504162448]
+transform = Transform3D(0.89681107, 0, 0.442414, 0, 1, 0, -0.442414, 0, 0.89681107, 29.862305, 0, 9.930664)
+shape = SubResource("BoxShape3D_nnkje")
+
+[editable path="Hill1"]
+[editable path="Hill1/Exit/Tankstelle"]
+[editable path="Hill1/Exit/Tankstelle/Exit/Hill3"]

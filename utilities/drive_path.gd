@@ -20,6 +20,7 @@ func _ready() -> void:
 	connection_manager.start_replay.connect(start_replay)
 	connection_manager.import_replay.connect(import_drive_path)
 	connection_manager.export_replay.connect(export_drive_path)
+	connection_manager.surrender_run.connect(end_replay)
 
 
 func _process(delta: float) -> void:
@@ -62,12 +63,12 @@ func follow_drive_path():
 
 
 func add_recording_point():
-		curve.add_point(player_vehicle.global_position - self.global_position)
-		last_recording = player_vehicle.global_position
-		timestamps.append(last_timestamp)
-		last_timestamp = 0
-		angles.append(player_vehicle.global_basis)
-		steerings.append(player_vehicle.steering)
+	curve.add_point(player_vehicle.global_position - self.global_position)
+	last_recording = player_vehicle.global_position
+	timestamps.append(last_timestamp)
+	last_timestamp = 0
+	angles.append(player_vehicle.global_basis)
+	steerings.append(player_vehicle.steering)
 
 
 func _input(event: InputEvent) -> void:
@@ -86,6 +87,7 @@ func start_replay():
 	visible = true
 	is_recording = false
 	player_vehicle.freeze = true
+	$CSGPolygon3D.path_node = self.get_path()
 	follow_drive_path()
 
 
@@ -96,6 +98,7 @@ func end_replay():
 	visible = false
 	is_recording = true
 	player_vehicle.freeze = false
+	$CSGPolygon3D.path_node = ""
 	drive_tween.kill()
 	curve.clear_points()
 	angles.clear()
