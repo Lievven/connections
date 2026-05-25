@@ -25,6 +25,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	var dist_to_player = global_position.distance_squared_to(connection_manager.player_position)
+	if dist_to_player > pow(1000, 2):
+		queue_free()
+		path_follow.queue_free()
+		return
+	
 	speed_change_timer -= delta
 	if speed_change_timer <= 0:
 		speed_change_timer += 10
@@ -68,6 +74,7 @@ func assign_new_path():
 	target_path = target_path.get_random_path()
 	if not target_path:
 		queue_free()
+		path_follow.queue_free()
 		return
 	target_path.add_child(path_follow)
 	follows_bike = target_path.register_bike(self)

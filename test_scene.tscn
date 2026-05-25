@@ -141,7 +141,7 @@ shadow_enabled = true
 omni_range = 373.289
 
 [node name="VehicleBody3D" parent="." unique_id=2103107308 instance=ExtResource("3_sasra")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 7, 35)
+transform = Transform3D(-0.9987264, -0.050441194, 0.0011137559, 0.050453488, -0.998483, 0.02204852, -8.740147e-08, 0.022076633, 0.9997563, 15.4935, 0.1742363, 62.149696)
 
 [node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=72373042]
 transform = Transform3D(-1, -7.619396e-09, 8.70901e-08, 0, 0.99619466, 0.08715573, -8.742278e-08, 0.08715573, -0.99619466, 0, 1, 0)
@@ -248,3 +248,6 @@ shape = SubResource("CylinderShape3D_2nij2")
 
 [node name="DrivePath" parent="." unique_id=1548245820 node_paths=PackedStringArray("player_vehicle") instance=ExtResource("6_buypi")]
 player_vehicle = NodePath("../VehicleBody3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1814518037]
+autoplay = true

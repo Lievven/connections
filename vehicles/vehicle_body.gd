@@ -63,6 +63,8 @@ func _process(delta: float) -> void:
 	drop = min(drop, abs(engine_force))
 	engine_force -= sign(engine_force) * drop
 	#test_drive(delta)
+	
+	connection_manager.player_position = global_position
 
 
 func test_drive(delta: float):

@@ -14,3 +14,4 @@ var is_using_mouse = true
 var is_steering_inverted = false
 
 var game_timer: float = 0
+var player_position: Vector3 = Vector3(0, 0, 0)

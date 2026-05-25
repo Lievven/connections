@@ -6,10 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://b538eivx0j447" path="res://vehicles/lenkrad.glb" id="3_eifvt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1igo3"]
-bounce = 1.0
+bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_78c0k"]
 size = Vector3(2, 0.7, 4.7000003)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eifvt"]
+radius = 0.1
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_78c0k"]
 height = 0.25
@@ -48,6 +51,10 @@ visible = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1554499973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14999995, 0.10000008)
 shape = SubResource("BoxShape3D_78c0k")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=250960927]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.85, 0.10000008)
+shape = SubResource("CylinderShape3D_eifvt")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="." unique_id=1788777633]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, 0, -1.7)
