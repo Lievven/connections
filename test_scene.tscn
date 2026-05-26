@@ -141,7 +141,7 @@ shadow_enabled = true
 omni_range = 373.289
 
 [node name="VehicleBody3D" parent="." unique_id=2103107308 instance=ExtResource("3_sasra")]
-transform = Transform3D(-0.9987264, -0.050441194, 0.0011137559, 0.050453488, -0.998483, 0.02204852, -8.740147e-08, 0.022076633, 0.9997563, 15.4935, 0.1742363, 62.149696)
+transform = Transform3D(-0.9987264, -0.050441198, 0.001113756, -0.05039158, 0.998351, 0.027496165, -0.0024988588, 0.027405022, -0.99962133, 15.4935, 17.715307, 38.037136)
 
 [node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=72373042]
 transform = Transform3D(-1, -7.619396e-09, 8.70901e-08, 0, 0.99619466, 0.08715573, -8.742278e-08, 0.08715573, -0.99619466, 0, 1, 0)
@@ -199,6 +199,7 @@ metadata/_custom_type_script = "uid://b3i36872q1ksy"
 [node name="BikeSpawner" parent="ChoicePath" unique_id=1282200984 node_paths=PackedStringArray("entry_path") instance=ExtResource("6_8pr8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 entry_path = NodePath("..")
+min_spawn_range = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChoicePath/BikeSpawner" unique_id=1705509138]
 shape = SubResource("CylinderShape3D_buypi")

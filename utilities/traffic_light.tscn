@@ -3,20 +3,33 @@
 [ext_resource type="Script" uid="uid://bvu6amg1y45ba" path="res://utilities/traffic_light.gd" id="1_4ucqr"]
 [ext_resource type="PackedScene" uid="uid://fhr02j8oyp4m" path="res://utilities/Ampel.glb" id="2_eptbm"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_eptbm"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_shwlp"]
 top_radius = 0.096
 bottom_radius = 0.096
 height = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ucqr"]
+resource_local_to_scene = true
 albedo_color = Color(0.44705883, 0.13725491, 0.03529412, 1)
 emission = Color(0.7607843, 0.13725491, 0.03529412, 1)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_0te7f"]
+top_radius = 0.096
+bottom_radius = 0.096
+height = 0.1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8e37"]
+resource_local_to_scene = true
 albedo_color = Color(0.52, 0.35221332, 0.062400002, 1)
 emission = Color(1, 0.6745098, 0.12156863, 1)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_eptbm"]
+top_radius = 0.096
+bottom_radius = 0.096
+height = 0.1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8rcp"]
+resource_local_to_scene = true
 albedo_color = Color(0, 0.27, 0, 1)
 emission = Color(0, 0.68, 0, 1)
 
@@ -26,12 +39,12 @@ script = ExtResource("1_4ucqr")
 
 [node name="Red" type="MeshInstance3D" parent="." unique_id=1458474288]
 transform = Transform3D(-5.9604645e-08, 1, 0, -1, -5.9604645e-08, 0, 0, 0, 1, 0.39, 2.835, -0.003)
-mesh = SubResource("CylinderMesh_eptbm")
+mesh = SubResource("CylinderMesh_shwlp")
 surface_material_override/0 = SubResource("StandardMaterial3D_4ucqr")
 
 [node name="Yellow" type="MeshInstance3D" parent="." unique_id=311456510]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.39, 2.571, -0.004492305)
-mesh = SubResource("CylinderMesh_eptbm")
+mesh = SubResource("CylinderMesh_0te7f")
 surface_material_override/0 = SubResource("StandardMaterial3D_b8e37")
 
 [node name="Green" type="MeshInstance3D" parent="." unique_id=211115289]

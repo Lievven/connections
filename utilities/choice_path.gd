@@ -6,9 +6,7 @@ extends Path3D
 @export var bake_interval: float = 3.0
 @export var max_bikes = 0
 
-var bikes_inside = 0
-
-var last_bike: CharacterBike = null
+var registered_bikes: Array[CharacterBike] = []
 
 # DEPRECATED
 var entry_points: Array[int]
@@ -19,34 +17,50 @@ func _ready() -> void:
 
 
 func is_occupied() -> bool:
-	return max_bikes > 0 and bikes_inside >= max_bikes
+	return max_bikes > 0 and registered_bikes.size() >= max_bikes
+	
+
+func unregister_bike(bike: CharacterBike):
+	registered_bikes.erase(bike)
 
 
 func register_bike(new_bike: CharacterBike) -> CharacterBike:
-	var previous_bike = last_bike
-	last_bike = new_bike
-	if previous_bike:
-		return previous_bike
+	var closest_before: CharacterBike = null
+	var progress_before = INF
+	var closest_after: CharacterBike = null
+	var progress_after = INF
+	
+	for b: CharacterBike in registered_bikes:
+		if b.get_progress() > new_bike.get_progress():
+			if b.get_progress() < progress_before:
+				progress_before = b.get_progress()
+				closest_before = b
+		elif b.get_progress() < progress_after:
+			progress_after = b.get_progress()
+			closest_after = b
+	
+	registered_bikes.append(new_bike)
+	
+	if closest_after:
+		closest_after.set_following_bike(new_bike)
+	if closest_before:
+		return closest_before
 	return null
 
 
 func stop_bike(target_point: Vector3) -> bool:
-	if max_bikes <= 0:
+	if connections.size() == 0:
 		return false
 	if get_random_path():
 		return false
 	
-	var last_point = curve.get_point_position(curve.point_count - 1) + global_position
-	return target_point.distance_squared_to(last_point) < 100
-
-
-func enter_exit_bike(has_entered: bool):
-	if not max_bikes:
-		return
-	if has_entered:
-		bikes_inside += 1
-	else:
-		bikes_inside -= 1
+	
+	var last_point = curve.get_point_position(curve.point_count - 1)
+	last_point *= global_basis.inverse()
+	last_point += global_position
+	last_point.y = target_point.y
+	
+	return target_point.distance_squared_to(last_point) < 200
 
 
 func get_random_path() -> ChoicePath:

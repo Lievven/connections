@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var acceleration: float = 3
 @export var target_path: ChoicePath
 @export var follow_distance: float = 5
+@export var despawn_distance: float = 510
 
 @onready var current_max_speed = max_speed
 var speed_change_timer = 0
@@ -15,10 +16,12 @@ var target_point: Vector3
 
 var path_follow: PathFollow3D
 var follows_bike: CharacterBike
+var starting_progress: float = 0
 
 
 func _ready() -> void:
 	path_follow = PathFollow3D.new()
+	path_follow.progress = starting_progress
 	follows_bike = target_path.register_bike(self)
 	target_path.add_child(path_follow)
 	target_point = path_follow.global_position
@@ -26,7 +29,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var dist_to_player = global_position.distance_squared_to(connection_manager.player_position)
-	if dist_to_player > pow(1000, 2):
+	if dist_to_player > pow(despawn_distance, 2):
+		target_path.unregister_bike(self)
 		queue_free()
 		path_follow.queue_free()
 		return
@@ -55,6 +59,14 @@ func _process(delta: float) -> void:
 		break_or_accelerate(delta)
 
 
+func get_progress() -> float:
+	return path_follow.progress
+
+
+func set_following_bike(bike: CharacterBike):
+	follows_bike = bike
+
+
 func break_or_accelerate(delta: float):
 	var red_light = target_path.stop_bike(global_position)
 	var distance_to_previous = INF
@@ -69,7 +81,7 @@ func break_or_accelerate(delta: float):
 
 
 func assign_new_path():
-	target_path.enter_exit_bike(false)
+	target_path.unregister_bike(self)
 	target_path.remove_child(path_follow)
 	target_path = target_path.get_random_path()
 	if not target_path:
@@ -78,7 +90,6 @@ func assign_new_path():
 		return
 	target_path.add_child(path_follow)
 	follows_bike = target_path.register_bike(self)
-	target_path.enter_exit_bike(true)
 
 
 func _physics_process(delta: float) -> void:
